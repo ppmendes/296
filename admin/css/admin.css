@@ -1,0 +1,21 @@
+/* css da página de administrador */
+
+.almanaque_processoseletivo_form label{
+    /*  */
+    font-size: 23px;
+    font-weight: bold;
+}
+
+#clientes_parceiros_fieldset, #clientes_parceiros_cadastrados_fieldset {
+    width: 400px;
+}
+
+.fancybox-custom .fancybox-skin {
+    box-shadow: 0 0 50px #222;
+}
+
+#botao_deletar_cliente_parceiro{
+    position: relative;
+    width: 75px;
+    left: 62px;
+}

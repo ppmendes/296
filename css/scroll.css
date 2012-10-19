@@ -1,0 +1,123 @@
+/* You can alter this CSS in order to give Smooth Div Scroll your own look'n'feel */
+
+/* Invisible left hotspot */
+
+div.scrollingHotSpotLeft {
+	min-width:75px;
+	width:10%;
+	height:100%;
+	background-image:url(../images/big_transparent.gif);
+	background-repeat-x:repeat;
+	background-repeat-y:repeat;
+	background-repeat:repeat;
+	background-position:50% 50%;
+	background-position-x:50%;
+	background-position-y:50%;
+	position:absolute;
+	z-index:200;
+	left:0;
+	cursor:url(../images/cursors/cursor_arrow_left.png), url(../images/cursors/cursor_arrow_left.cur), w-resize;
+}
+
+/* Visible left hotspot */
+
+div.scrollingHotSpotLeftVisible {
+	background-image:url(../images/arrow_left.png);
+	background-color:transparent;
+	background-repeat-x:no-repeat;
+	background-repeat-y:no-repeat;
+	background-repeat:no-repeat;
+	zoom:1;
+}
+
+/* Invisible right hotspot */
+
+div.scrollingHotSpotRight {
+	min-width:75px;
+	width:10%;
+	height:100%;
+	background-image:url(../images/big_transparent.gif);
+	background-repeat-x:repeat;
+	background-repeat-y:repeat;
+	background-repeat:repeat;
+	background-position:50% 50%;
+	background-position-x:50%;
+	background-position-y:50%;
+	position:absolute;
+	z-index:200;
+	right:0;
+	cursor:url(../images/cursors/cursor_arrow_right.png), url(../images/cursors/cursor_arrow_right.cur), e-resize;
+}
+
+/* Visible right hotspot */
+
+div.scrollingHotSpotRightVisible {
+	background-image:url(../images/arrow_right.png);
+	background-color:transparent;
+	background-repeat-x:no-repeat;
+	background-repeat-y:no-repeat;
+	background-repeat:no-repeat;
+	zoom:1;
+}
+
+/* The scroll wrapper is always the same width and height as the containing element (div).
+   Overflow is hidden because you don't want to show all of the scrollable area.
+*/
+
+div.scrollWrapper {
+	position:relative;
+	overflow:hidden;
+	width:100%;
+	height:100%;
+}
+
+div.scrollableArea {
+	position:relative;
+	width:auto;
+	height:100%;
+}
+
+#scroll, #scroll_1 #scroll_2, #scroll_3, #scroll_4, #scroll_5, #scroll_6, #scroll_7{
+	position:relative;
+	float:left;
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	margin-bottom:0;
+}
+#scroll_1{
+	
+}
+
+#scroll_2{
+	
+}
+
+#scroll_3{
+
+}	
+
+#scroll_4{
+	
+}
+
+#scroll_5{
+	
+}
+
+#scroll_6{
+	
+}
+
+#scroll_7{
+	
+}
+
+#scroll div.scrollableArea img, #scroll_1 div.scrollableArea img, #scroll_2 div.scrollableArea img, #scroll_3 div.scrollableArea img, #scroll_4 div.scrollableArea img, #scroll_5 div.scrollableArea img, #scroll_6 div.scrollableArea img, #scroll_7 div.scrollableArea img {
+	position:relative;
+	float:left;
+	-webkit-user-select:none;
+	margin:0;
+	padding:0;
+}
+
