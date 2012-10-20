@@ -38,16 +38,16 @@
                 $(this).addClass('invisivel');
                 $("ul").css('display','none');
                 i++;
-                if($(this).html() == 'achamos'){
-                    $('body').css('background-image','url(\'../images/almanaque/bg_text.png\')');
-                }else if($(this).html() == 'gostamos'){
-                    $('body').css('background-image','url(\'../images/bg/pattern1.jpg\')');
-                }else if($(this).html() == 'contratamos'){
-                    $('body').css('background-image','url(\'../images/almanaque/bg_text.png\')');
-                }else if($(this).html() == 'adoecemos'){
-                    $('body').css('background-image','url(\'../images/bg/pattern1.jpg\')');
-                }else if($(this).html() == 'finalizamos'){
-                    $('body').css('background-image','url(\'../images/almanaque/bg_text.png\')');
+            });
+            $('#botao_ok').click(function(){
+                if($('.select').html() == 'amamos'){
+                    window.location.href = 'verbos.php?verbo=amamos';
+                }else if($('.select').html() == 'devoramos'){
+                    window.location.href = 'verbos.php?verbo=devoramos';
+                }else if($('.select').html() == 'dormimos'){
+                    window.location.href = 'verbos.php?verbo=dormimos';
+                }else if($('.select').html() == 'espirramos'){
+                    window.location.href = 'verbos.php?verbo=espirramos';
                 }
             });
         });
@@ -140,14 +140,13 @@
             <section style="position:relative; background-color:transparent; float:left; display:block; width:380px; height:100%; padding-right:5px; padding-left:5px; " >
                 <div class="select_lista">
                     <div class="envelope">
-                        <div class="select">achamos</div><div class="botao_seta">&nbsp;</div>
+                        <div class="select">amamos</div><div class="botao_seta">&nbsp;</div>
                     </div>
                     <ul class="invisivel">
-                        <li class="invisivel">achamos</li>
-                        <li>gostamos</li>
-                        <li>contratamos</li>
-                        <li>adoecemos</li>
-                        <li>finalizamos</li>
+                        <li class="invisivel">amamos</li>
+                        <li>devoramos</li>
+                        <li>dormimos</li>
+                        <li>espirramos</li>
                     </ul>
                 </div>
                 <!-- <article style="height:44px; position:absolute; width:auto; top:40%; background-color:transparent; text-align:center; font-size:3em; min-width:220px; border-bottom:2px solid #000000; " >amamos</article> -->
