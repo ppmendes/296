@@ -18,12 +18,84 @@
 		
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" >
 		<link rel="apple-touch-icon" href="apple-touch-icon.png" >
-	</head>
 
-<body style="width:100%; height:100%; margin:0; " >
-        
+        <script type="text/javascript" src="js/jquery.min.js" ></script>
+        <script type="text/javascript" src="js/jquery.anystretch.min.js" ></script>
+
+        <script src="js/jquery-ui-1.8.18.custom.min.js" type="text/javascript" ></script>
+        <script src="js/jquery.mousewheel.min.js" type="text/javascript" ></script>
+        <script src="js/jquery.smoothdivscroll-1.2-min.js" type="text/javascript" ></script>
+
+        <script type="text/javascript" src="js/jquery.anchor.js" ></script>
+        <script type="text/javascript" src="js/widgets.js" ></script>
+
+        <script src="http://demos.flesler.com/jquery/scrollTo/js/jquery.scrollTo-min.js" type="text/javascript"></script>
+        <!-- Scroll Script -->
+        <script type="text/javascript" >
+            // Initialize the plugin with no custom options
+            $(document).ready(function () {
+                // None of the options are set
+                $("section#section_01, section#section_02, section#section_03, section#section_04").smoothDivScroll({});
+                //
+                $('#section_global_02').anystretch("images/bg/bg_section_02.jpg");
+                $('#section_global_04').anystretch("images/bg/bg_section_04.jpg");
+                $('#section_global_05').anystretch("images/bg/bg_section_05.jpg");
+                $('#section_global_06').anystretch("images/bg/bg_section_06.jpg");
+
+                //arrumando âncoras laterais e verticais
+
+                //section_01
+
+                //subitem do menu: 296
+                $('#a_dois_menu').click(function(){
+                    $.scrollTo(20,1000);
+                    $("section#section_01").smoothDivScroll("scrollToElement", "id", "a_dois_section");
+                });
+
+                //subitem do menu: histórico
+                $('#historico_menu').click(function(){
+                    $.scrollTo(20,1000);
+                    $("section#section_01").smoothDivScroll("scrollToElement", "id", "historico_section");
+                });
+
+                //subitem do menu: histórico
+                $('#missao_valores_menu').click(function(){
+                    $.scrollTo(20,1000);
+                    //$("section#section_01").smoothDivScroll("move", 1800);
+                    $("section#section_01").smoothDivScroll("scrollToElement", "id", "missao_valores_section");
+                });
+
+                //section_02
+
+                //subitem do menu: membros
+                $('#membros_menu').click(function(){
+                    $.scrollTo('section#section_02',1000);
+                    $("section#section_02").smoothDivScroll("scrollToElement", "id", "membros_section");
+                });
+
+                //subitem do menu: ex-membros
+                $('#exmembros_menu').click(function(){
+                    $.scrollTo('section#section_02',1000);
+                    $("section#section_02").smoothDivScroll("scrollToElement", "id", "exmembros_section");
+                });
+
+            });
+        </script>
+
+        <!-- Twitter Script
+             <script>
+             !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+                 if(!d.getElementById(id)){js=d.createElement(s);
+                     js.id=id;js.src="//platform.twitter.com/widgets.js";
+                     fjs.parentNode.insertBefore(js,fjs);
+                 }}(document,"script","twitter-wjs");
+             </script>-->
+
+
+</head>
+
+<body id="body_panel" style="width:100%; height:100%; margin:0; " >
 		<a name="agencia" id="agencia" ></a>
-
 		<section class="section_global" >
 			<section class="nav" >
 				<nav class="nav_global" >
@@ -32,9 +104,9 @@
 							<li>
 								<a href="#agencia" class="anchorLink" >Agência</a>
 								<ul id="submenu1" >
-									<li id="li2" ><a href="#a_dois" class="anchorLink" >A Dois</a></li>
-									<li><a href="#historico" class="anchorLink" >Histórico</a></li>
-									<li><a href="#missao" class="anchorLink" >Missão e Valores</a></li>
+									<li id="li2"><a id="a_dois_menu" href="javascript:void(0)"  >A Dois</a></li>
+									<li><a id="historico_menu" href="javascript:void(0)">Histórico</a></li>
+									<li><a id="missao_valores_menu" href="javascript:void(0)">Missão e Valores</a></li>
 									
 								</ul>
 								<div class="div_space" ></div>
@@ -42,20 +114,20 @@
 							<li>
 								<a href="#pessoas" class="anchorLink" >Pessoas</a>
 								<ul id="submenu2" >
-									<li id="li2" ><a href="#" class="anchorLink" >Membros</a></li>
-									<li><a href="#" class="anchorLink" >Ex-Membros</a></li>
+									<li id="li2" ><a id="membros_menu" href="javascript:void(0)">Membros</a></li>
+									<li><a id="exmembros_menu" href="javascript:void(0)">Ex-Membros</a></li>
 								</ul>
 							</li>
 							<li><a href="#portifolio" class="anchorLink" >Portifólio</a>
 								<ul id="submenu3" >
-									<li id="li2" ><a href="#" class="anchorLink" >Clientes</a></li>
-									<li><a href="#" class="anchorLink" >Parceiros</a></li>
+									<li id="li2" ><a href="javascript:void(0)">Clientes</a></li>
+									<li><a href="javascript:void(0)">Parceiros</a></li>
 								</ul>
 							</li>
 							<li><a href="#com_a_gente" class="anchorLink" >Com a Gente</a></li>	
-							<li><a href="#almanaque" class="anchorLink" >Almanaque</a></li>
-							<li><a href="#processo_seletivo" class="anchorLink" >Processo Seletivo</a></li>
-							<li><a href="#contato" class="anchorLink" >Contato</a></li>
+							<li><a href="#almanaque">Almanaque</a></li>
+							<li><a href="javascript:void(0)">Processo Seletivo</a></li>
+							<li><a href="javascript:void(0)">Contato</a></li>
 								<li style="float:right; " >
 							<a href="#intro" style="color:#70B048; " >Intro</a></li>
 							
@@ -73,7 +145,7 @@
 						<section id="logo_slice_01" style="background-image:url(images/icon_logo.png); margin-top:0; " ></section>
 						
 						<a name="a_dois" id="a_dois" ></a>
-						<section style="height:600px; margin-left:150px; float:left; position:relative; margin-top:50px; margin-right:150px; " >
+						<section id="a_dois_section" style="height:600px; margin-left:150px; float:left; position:relative; margin-top:50px; margin-right:150px; " >
 							<header class="header_title" id="header_section_01" >Quem somos</header>
 								<div class="line" id="line_section_01" ></div>
 								<article class="article_global" id="article_slice_01" >
@@ -90,7 +162,7 @@
 						</section>
 
 						<a name="historico" id="historico" ></a>
-						<section style="width:auto; height:700px; float:left; position:relative; margin-top:50px; margin-left:150px; margin-right:150px; padding-left:50px; padding-right:50px; " >
+						<section id="historico_section" style="width:auto; height:700px; float:left; position:relative; margin-top:50px; margin-left:150px; margin-right:150px; padding-left:50px; padding-right:50px; " >
 							<header class="header_title" id="header_section_01" >Nossa caminhada</header>
 								<div class="line" id="line_section_01" ></div>
 								<article class="article_global" id="article_slice_01" >
@@ -141,7 +213,7 @@
 
 						
 						<a name="missao" id="missao" ></a>
-						<section class="circle_section01" style="margin-left:245px; " >
+						<section id="missao_valores_section" class="circle_section01" style="margin-left:245px; " >
 							<header class="header_title" id="header_section_01" >Missão</header>
 								
 								<article class="article_global" id="article_slice_01" style="margin-left:65px; " >
@@ -189,7 +261,7 @@
 					<section id="section_02" >
 
 						<a id="membros" ></a>
-						<section class="section_alphablack" id="alphablack_membros" >
+						<section id="membros_section" class="section_alphablack" id="alphablack_membros" >
 							<section id="note_pessoas" >
 								<hgroup>
 									<header class="header_section_02" style="color:#4DB848; font-weight:bold; margin-top:20px; " >Nome do membro</header>
@@ -257,10 +329,71 @@
 						</section>
 
 						<a id="exmembros" ></a>
-						<section class="section_alphablack" id="alphablack_exmembros" >
-							
-							
-						</section>
+                        <section id="exmembros_section" class="section_alphablack" id="alphablack_membros" >
+                            <section id="note_pessoas" >
+                                <hgroup>
+                                    <header class="header_section_02" style="color:#4DB848; font-weight:bold; margin-top:20px; " >Nome do membro</header>
+                                    <header class="header_section_02" style="color:#4DB848; font-style:oblique; margin-top:5px; " >Cargo</header>
+                                </hgroup>
+                                <article class="header_section_02" style="color:#FFFFFF; font-weight:normal; margin-top:10px; " >
+                                    Uma agência de<br>
+                                    publicidade formada<br>
+                                    só por estudantes.<br>
+                                </article>
+                            </section>
+
+                            <div style="float:left; width:760px; position:relative; margin-top:0; margin-left:0; height:auto; " >
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/01.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/02.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/03.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/04.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/05.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/06.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/07.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/08.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/01.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/02.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/03.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/04.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/05.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/06.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/07.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/08.jpg); " ></figure>
+                            </div>
+
+                            <div style="width:100%; height:auto; float:left; position:relative; margin-top:0; " >
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/01.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/02.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/03.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/04.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/05.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/06.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/07.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/08.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/09.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/10.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/01.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/02.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/03.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/04.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/05.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/06.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/07.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/08.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/09.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/10.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/01.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/02.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/03.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/04.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/05.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/06.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/07.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/08.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/09.jpg); " ></figure>
+                                <figure class="figure_pessoas" style="background-image:url(images/pessoas/10.jpg); " ></figure>
+
+                            </div>
 					</section>
 				</section>
 				<section class="divisor" id="divisor_down" ></section>
@@ -885,45 +1018,11 @@
 				</aside>
 
 			</section>
+                    <button id="relative-selector">teste</button>
 			</footer>
 			<a id="contato" ></a>
 	
 <!-- Script initialization -->
 
-		<script type="text/javascript" src="js/jquery.min.js" ></script>
-		<script type="text/javascript" src="js/jquery.anystretch.min.js" ></script>
-
-		<script src="js/jquery-ui-1.8.18.custom.min.js" type="text/javascript" ></script>
-		<script src="js/jquery.mousewheel.min.js" type="text/javascript" ></script>
-		<script src="js/jquery.smoothdivscroll-1.2-min.js" type="text/javascript" ></script>
-
-		<script type="text/javascript" src="js/jquery.anchor.js" ></script>
-		<script type="text/javascript" src="js/widgets.js" ></script>
-
-<!-- Scroll Script -->
-	<script type="text/javascript" >
-		// Initialize the plugin with no custom options
-		$(document).ready(function () {
-			// None of the options are set
-			$("section#section_01, section#section_02, section#section_03, section#section_04").smoothDivScroll({});
-		});
-	</script>
-
-<!-- AnyStretch Image Script -->
-	<script>
-			$('#section_global_02').anystretch("images/bg/bg_section_02.jpg");
-			$('#section_global_04').anystretch("images/bg/bg_section_04.jpg");
-			$('#section_global_05').anystretch("images/bg/bg_section_05.jpg");
-			$('#section_global_06').anystretch("images/bg/bg_section_06.jpg");
-	</script>
-	
-<!-- Twitter Script 
-	    <script>
-	    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
-	    	if(!d.getElementById(id)){js=d.createElement(s);
-	    		js.id=id;js.src="//platform.twitter.com/widgets.js";
-	    		fjs.parentNode.insertBefore(js,fjs);
-	    	}}(document,"script","twitter-wjs");
-	    </script>-->
 
 </section></body></html>
