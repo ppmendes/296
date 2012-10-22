@@ -1,3 +1,26 @@
+<?php
+$base_url = "/var/www/296";
+include($base_url."/login/seguranca.php");
+
+mysql_query("SET NAMES utf8");
+$sql = "SELECT * from `introducao_verbo` ORDER BY nome_verbo ASC ";
+$resultado = mysql_query($sql);
+
+$lista = '';
+$i=0;
+
+while ($verbo_introducao = mysql_fetch_array($resultado)){
+    if($i==0){
+		$lista .= "<li class=\"invisivel\">{$verbo_introducao['nome_verbo']}</li>";
+		$selecionado = $verbo_introducao['nome_verbo'];
+	}
+    else{
+        $lista .= "<li>{$verbo_introducao['nome_verbo']}</li>";
+    }
+    $i++;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR" class="no-js" ><!--<![endif]--><head style="" >
 
@@ -40,15 +63,8 @@
                 i++;
             });
             $('#botao_ok').click(function(){
-                if($('.select').html() == 'amamos'){
-                    window.location.href = 'verbos.php?verbo=amamos';
-                }else if($('.select').html() == 'devoramos'){
-                    window.location.href = 'verbos.php?verbo=devoramos';
-                }else if($('.select').html() == 'dormimos'){
-                    window.location.href = 'verbos.php?verbo=dormimos';
-                }else if($('.select').html() == 'espirramos'){
-                    window.location.href = 'verbos.php?verbo=espirramos';
-                }
+                verbo_selecionado = $('.select').html();
+                window.location.href = 'verbos.php?verbo='+verbo_selecionado;
             });
         });
 
@@ -140,13 +156,10 @@
             <section style="position:relative; background-color:transparent; float:left; display:block; width:380px; height:100%; padding-right:5px; padding-left:5px; " >
                 <div class="select_lista">
                     <div class="envelope">
-                        <div class="select">amamos</div><div class="botao_seta">&nbsp;</div>
+                        <div class="select"><?php echo $selecionado; ?></div><div class="botao_seta">&nbsp;</div>
                     </div>
                     <ul class="invisivel">
-                        <li class="invisivel">amamos</li>
-                        <li>devoramos</li>
-                        <li>dormimos</li>
-                        <li>espirramos</li>
+                        <?php echo $lista; ?>
                     </ul>
                 </div>
                 <!-- <article style="height:44px; position:absolute; width:auto; top:40%; background-color:transparent; text-align:center; font-size:3em; min-width:220px; border-bottom:2px solid #000000; " >amamos</article> -->
