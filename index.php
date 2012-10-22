@@ -341,9 +341,41 @@
 
             <a id="exmembros" ></a>
             <section id="exmembros_section" class="section_alphablack" id="alphablack_exmembros" >
-                descrição
-                <br />
-                <br />
+                <section style="width: 200px; float: left; overflow: hidden; margin-left: 170px; margin-top: 170px;">
+                    <article class="header_section_02" style="color:#FFFFFF; font-weight:normal; margin-top:10px; " >
+                        Temos mais de 300 ex-membros<br>
+                        e alguns deles já passaram por<br>
+                        grandes empresas e agências<br>
+                        do mundo todo,como Google,<br>
+                        Microsoft, Almap BBDO e<br>
+                        Santa Clara Nitro.<br><br>
+                    </article>
+                    <footer style="text-align: right;">
+                        <a href="#" style="color:#4DB848; text-decoration: none;">Se você é ex-membro envie<br>
+                        também seu depoimento.</a>
+                    </footer>
+                </section>
+                <section style="height: 130px; float: left; border-left: solid 1px #FFFFFF; margin-top: 190px; margin-left: 10px;">&nbsp;</section>
+                <section style="min-height:480px; width: 500px; float: left; overflow: hidden; margin-top: 170px;">
+                    <article class="header_section_02" style="white-space: normal; color:#FFFFFF; font-weight:normal; margin-top:10px; font-size: 24px; line-height: 40px; " >
+                        <image src="images/abre_aspas.png">
+                            A DOIS É UM LUGAR ONDE A
+                            GENTE APRENDE MUITO E FAZ
+                            GRANDES AMIGOS AO MESMO TEMPO.
+                            PARECE MESA DE BAR, SÓ QUE SEM O
+                            BAR... E ÀS VEZES SEM A MESA.
+                            <image src="images/fecha_aspas.png">
+                    </article>
+
+                    <footer style="text-align: right; color:#4DB848;">
+                        Thiagoogo Hfgoog, ex-alguma coisa vai aqui.
+                    </footer>
+
+                    <nav style="text-align: center; margin-top:20px;">
+                        <a href="#" style="padding-right: 10px;"><img src="images/seta_esquerda.png"></a>
+                        <a href="#" style="padding-left: 10px;"><img src="images/seta_direita.png"></a>
+                    </nav>
+                </section>
             </section>
         </section>
     </section>
