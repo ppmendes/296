@@ -51,6 +51,15 @@ $array_296_almanaque_processoseletivo = mysql_fetch_array($resultado_296_almanaq
     <script type="text/javascript" >
         // Initialize the plugin with no custom options
         $(document).ready(function () {
+            if(window.location.hash == '' || window.location.hash == '#'){
+                $('.menu > li > .menu_ativo').removeClass('menu_ativo');
+                $('.menu > li > a[href="#agencia"]').addClass('menu_ativo');
+            }
+            //Menu selecionado
+            $('a').click(function(){
+                $('.menu > li > .menu_ativo').removeClass('menu_ativo');
+                $('.menu > li > a[href="'+this.hash+'"]').addClass('menu_ativo');
+            });
             // None of the options are set
             $("section#section_01, section#section_02, section#section_03, section#section_04").smoothDivScroll({});
 
