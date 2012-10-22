@@ -1,3 +1,15 @@
+<?php
+$base_url = "/var/www/296";
+include($base_url."/login/seguranca.php");
+
+$verbo_busca = mysql_real_escape_string($_REQUEST['verbo']);
+
+mysql_query("SET NAMES utf8");
+$sql = "SELECT * from `introducao_verbo` WHERE nome_verbo = '{$verbo_busca}' ";
+$resultado = mysql_query($sql);
+
+$verbo_dados = mysql_fetch_array($resultado);
+?>
 <!DOCTYPE html>
 <html lang="pt-BR" class="no-js" ><!--<![endif]--><head style="" >
 
@@ -81,9 +93,8 @@
             z-index: 1;
             padding: 50px 20px 10px 20px;
         }
-        figcaption td{
+        figcaption{
             color: #4DB848;
-            padding-right: 20px;
         }
         nav{
             margin-top: 10px;
@@ -105,35 +116,15 @@
 		<section id="main" style="overflow: hidden; height: 100%;" >
             <figure style="overflow: hidden; height: 100%; margin: 0; padding: 0;">
                 <?php
-                    $verbo = $_REQUEST['verbo'];
-                    $imagem = '';
-                    if($verbo == 'amamos'){
-                        $imagem = 'Amar';
-                    } else if($verbo == 'devoramos'){
-                        $imagem = 'Devorar';
-                    }else if($verbo == 'dormimos'){
-                        $imagem = 'Dormir';
-                    }else if($verbo == 'espirramos'){
-                        $imagem = 'Espirrar';
-                    }
+                    $imagem = $verbo_dados['imagem_fundo'];
                 ?>
                 <div class="botao_mostra">
                     &nbsp;
                 </div>
                 <figcaption class="invisivel">
-                    <table>
-                        <tr>
-                            <td>Diretor de Arte: Luciano Franco</td>
-                            <td>Redator: Pedro Mendes</td>
-
-                        </tr>
-                        <tr>
-                            <td>Fotografia: Luciano Franco</td>
-                            <td>Sei lá o que: Pedro Mendes</td>
-                        </tr>
-                    </table>
+                    <?php echo $verbo_dados['ficha_tecnica']; ?>
                 </figcaption>
-                <img src="../images/verbos/<?php echo $imagem; ?>.jpg" alt="" width="100%" />
+                <img src="../<?php echo $imagem; ?>" alt="" width="100%" />
             </figure>
 		</section>
         <footer style="padding: 10px 0; position:absolute; bottom: 0; width: 100%; height:50px; background-color: #FFF;" >
