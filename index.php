@@ -132,6 +132,7 @@
 <section id="section_global_01" style="background-image:url(images/bg/pattern1.jpg); height:auto; " >
     <section style="width:100%; height:880px; margin-left:0%; " >
         <section id="section_01" >
+
             <a name="a_dois" ></a>
             <section id="a_dois_section" class="logo_slice_01" style="background-image:url(images/icon_logo.png); margin-top:0; " ></section>
 
@@ -149,7 +150,26 @@
                     fazemos o que fazemos pelo dinheiro, já que nem salário nós recebemos. E se você estiver se<br>
                     perguntando por que então fazemos isso, a resposta é muito simples. Fazemos por paixão.<br>
                 </article>
-                <div class="line" id="line_section_01" ></div>
+                <div class="line" id="line_section_01" >
+                </div>
+
+                <div id="redessociais">
+                    <!-- facebook -->
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=483416835011701";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                    <div class="fb-like" data-href="https://www.facebook.com/Doisnovemeia" data-send="false" data-layout="button_count" data-width="250" data-show-faces="false" data-font="verdana">
+                    </div>
+                    <!-- twitter -->
+                    <a href="https://twitter.com/doisnovemeia" class="twitter-follow-button" data-show-count="false" data-lang="pt" data-show-screen-name="false">Seguir @doisnovemeia</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
+
             </section>
 
             <a name="historico" id="historico" ></a>

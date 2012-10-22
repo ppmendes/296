@@ -914,6 +914,21 @@ body {
 	padding-bottom:10px;
 	float:left;
 }
-
 /* Fim do Footer */
 
+/* Facebook - Twitter */
+#redessociais {
+    position: relative;
+    left: 480px;
+}
+
+.twitter-follow-button {
+    position: relative;
+    right: 0;
+    top: 15px;
+}
+.fb-like {
+    position: relative;
+    right: 20px;
+    top: 10px;
+}
