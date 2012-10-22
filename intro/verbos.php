@@ -1,7 +1,11 @@
 <?php
-$base_url = "/var/www/296";
-include($base_url."/login/seguranca.php");
+//linux
+//$base_url = "/var/www/296";
 
+//windows
+$base_url = "C:/wamp/www/296";
+
+include($base_url."/login/seguranca.php");
 $verbo_busca = mysql_real_escape_string($_REQUEST['verbo']);
 
 mysql_query("SET NAMES utf8");
@@ -128,7 +132,7 @@ $verbo_dados = mysql_fetch_array($resultado);
             </figure>
 		</section>
         <footer style="padding: 10px 0; position:absolute; bottom: 0; width: 100%; height:50px; background-color: #FFF;" >
-            <nav style=" float: left;"><a href="intro.php">VOLTAR</a> <a href="../index.php">SEGUIR</a></nav>
+            <nav style=" float: left;"><a href="intro.php">VOLTAR</a> <a href="../principal.php">SEGUIR</a></nav>
             <figure style=" float: right; width:160px; height:50px; margin-right:2%; background-color:transparent; margin-top:0; background-image:url(../images/296_2010.png); background-position:50% 0%; background-position-x:50%; background-position-y:0%; background-size:auto 100%; background-repeat-x:no-repeat; background-repeat-y:no-repeat; background-repeat:no-repeat; " ></figure>
             <div style=" float: right;">Vivemos publicidade.</div>
         </footer>

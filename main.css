@@ -932,6 +932,15 @@ body {
     right: 20px;
     top: 10px;
 }
+
+/* setando tamanho fixo na seção de membros independente do número de fotos */
+
+
+#membros_section {
+    height: 650px;
+}
+
+}
 .menu li a{
     padding-top: 20px;
     height: 33px;
