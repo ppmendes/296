@@ -410,22 +410,10 @@ body {
 }
 
 .menu li #submenu4 {
-	left:190px;
+    left: 275px;
 }
 
-.menu li #submenu5 {
-	left:180px;
-}
-
-.menu li #submenu6 {
-	left:200px;
-}
-
-.menu li #submenu7 {
-	left:220px;
-}
-
-#li2 {
+.li2 {
 	margin-left:-20px;
 }
 
@@ -509,7 +497,7 @@ body {
 
 /* ========================================================================== Seções */
 
-#content_04, #content_05 {
+.content_04, .content_05 {
 	width:3840px;
 }
 
@@ -606,7 +594,7 @@ body {
 #slice_04 {
 }
 
-#content_04 {
+.content_04 {
 	width:1100px;
 	height:700px;
 	background-color:#FFFFFF;
@@ -781,7 +769,7 @@ body {
 	text-align:justify;
 }
 
-#logo_slice_01 {
+.logo_slice_01 {
 	width:300px;
 	height:600px;
 	margin-left:50px;
