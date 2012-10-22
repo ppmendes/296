@@ -1,9 +1,9 @@
 <?php
 
 //linux
-$base_url = "/var/www/296";
+//$base_url = "/var/www/296";
 //windows
-//$base_url = "C:/wamp/www/296";
+$base_url = "C:/wamp/www/296";
 include($base_url."/login/seguranca.php");
 
 mysql_query("SET NAMES utf8");
@@ -32,6 +32,20 @@ $sql_parceiros = "SELECT * from `clientes_parceiros` WHERE tipo = 'parceiro'";
 $resultado_parceiros = mysql_query($sql_parceiros);
 while($row = mysql_fetch_assoc($resultado_parceiros)){
     $array_parceiros[] = $row;
+}
+
+mysql_query("SET NAMES utf8");
+$sql_pessoas = "SELECT * from `pessoas`";
+$resultado_pessoas = mysql_query($sql_pessoas);
+while($row = mysql_fetch_assoc($resultado_pessoas)){
+    if($row['tipo'] == 'membro')
+    {
+        $array_pessoas_membros[] = $row;
+    }
+    if($row['tipo'] == 'ex-membro')
+    {
+        $array_pessoas_exmembros[] = $row;
+    }
 }
 
 ?>
@@ -124,6 +138,12 @@ while($row = mysql_fetch_assoc($resultado_parceiros)){
                 $("section#section_04").smoothDivScroll("scrollToElement", "id", "parceiros_section");
             });
         });
+
+        function atualizaNomeCargoMembro(nome, cargo)
+        {
+            $('#nomeMembro').html(nome);
+            $('#cargoMembro').html(cargo);
+        }
     </script>
 </head>
 
@@ -177,11 +197,11 @@ while($row = mysql_fetch_assoc($resultado_parceiros)){
 <section style="width:100%; height:80px; float:none; margin-bottom:0; background-image:url(images/bg/pattern1.jpg); position:relative; margin-left:auto; margin-right:auto; display:block; " ></section>
 
 <section id="section_global_01" style="background-image:url(images/bg/pattern1.jpg); height:auto; " >
-    <section style="width:100%; height:880px; margin-left:0%; " >
+    <section style="width:100%; height:800px; margin-left:0%; " >
         <section id="section_01" >
 
             <a name="a_dois" ></a>
-            <section id="a_dois_section" class="logo_slice_01" style="background-image:url(images/icon_logo.png); margin-top:0; " ></section>
+            <section id="a_dois_section" class="logo_slice_01" style="background-image:url(images/logo.gif); margin-top:0; " ></section>
 
             <a name="a_dois" id="a_dois" ></a>
             <section style="height:600px; margin-left:150px; float:left; position:relative; margin-top:50px; margin-right:150px; " >
@@ -280,12 +300,8 @@ while($row = mysql_fetch_assoc($resultado_parceiros)){
 </section>
 
 
-
-
-
 <a id="pessoas" ></a>
 <section id="section_global_02" style="height:auto; " >
-    <section class="divisor" id="divisor_up" ></section>
     <section style="width:100%; height:auto; margin-left:0%; margin-bottom:100px; " >
         <section id="section_02" >
 
@@ -293,8 +309,8 @@ while($row = mysql_fetch_assoc($resultado_parceiros)){
             <section id="membros_section" class="section_alphablack" id="alphablack_membros" >
                 <section id="note_pessoas" >
                     <hgroup>
-                        <header class="header_section_02" style="color:#4DB848; font-weight:bold; margin-top:20px; " >Nome do membro</header>
-                        <header class="header_section_02" style="color:#4DB848; font-style:oblique; margin-top:5px; " >Cargo</header>
+                        <header id="nomeMembro" class="header_section_02" style="color:#4DB848; font-weight:bold; margin-top:20px; " >Nome do membro</header>
+                        <header id="cargoMembro" class="header_section_02" style="color:#4DB848; font-style:oblique; margin-top:5px; " >Cargo</header>
                     </hgroup>
                     <article class="header_section_02" style="color:#FFFFFF; font-weight:normal; margin-top:10px; " >
                         Uma agência de<br>
@@ -304,22 +320,14 @@ while($row = mysql_fetch_assoc($resultado_parceiros)){
                 </section>
 
                 <div style="float:left; width:760px; position:relative; margin-top:0; margin-left:0; height:auto; " >
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/01.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/02.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/03.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/04.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/05.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/06.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/07.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/08.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/01.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/02.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/03.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/04.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/05.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/06.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/07.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/08.jpg); " ></figure>
+                    <?php
+                    foreach($array_pessoas_membros as $pessoas_membros)
+                    {
+                    ?>
+                        <figure onmouseover="atualizaNomeCargoMembro('<?php echo $pessoas_membros['nome']; ?>','<?php echo $pessoas_membros['cargo']; ?>');" onmouseout="atualizaNomeCargoMembro('Nome do Membro','Cargo do Membro');" class="figure_pessoas" style="background-image:url(<?php echo $pessoas_membros['foto'] ?>); " ></figure>
+                    <?php
+                    }
+                    ?>
                 </div>
 
                 <div style="width:100%; height:auto; float:left; position:relative; margin-top:0; " >
@@ -403,9 +411,6 @@ while($row = mysql_fetch_assoc($resultado_parceiros)){
 
 <a id="portfolio" ></a>
 <section id="section_global_03" style="background-image:url(images/bg/pattern2.jpg); height:auto; " >
-
-    <section class="divisor" id="divisor_up" ></section>
-
     <section style="width:100%; height:800px; margin-left:0%; " >
         <section id="section_03" class="portifolio_section" >
 
@@ -470,7 +475,6 @@ while($row = mysql_fetch_assoc($resultado_parceiros)){
 
 <a id="com_a_gente" ></a>
 <section id="section_global_04" style="height:auto; " >
-<section class="divisor" id="divisor_up" ></section>
 <section style="width:auto; height:auto; margin-left:0%; padding-bottom:50px; " >
 <section id="section_04" >
 <section id="clientes_section" class="content_04" style="" >
@@ -526,10 +530,8 @@ while($row = mysql_fetch_assoc($resultado_parceiros)){
 <a id="almanaque" ></a>
 
 <section id="section_global_05" style="float:none; position:relative; margin-left:auto; margin-right:auto; display:block; height:auto; " >
-    <section class="divisor" id="divisor_up" style="z-index:1; " ></section>
-
     <section id="section_05" style="height:600px; padding-top:100px; " >
-        <section style="width:450px; height:auto; display:block; padding-right:50px; padding-bottom:15px; padding-left:50px; z-index:0; margin-left:auto; margin-right:auto; position:relative; float:none; " >
+        <section style="position: relative;top: 30px;width:450px; height:auto; display:block; padding-right:50px; padding-bottom:15px; padding-left:50px; z-index:0; margin-left:auto; margin-right:auto; position:relative; float:none; " >
 
             <header class="header_title" id="header_section_05" style="position:relative; float:none; margin-left:auto; margin-right:auto; display:block; " >Nosso orgulho</header>
 
@@ -545,12 +547,10 @@ while($row = mysql_fetch_assoc($resultado_parceiros)){
 
 <a id="processo_seletivo" ></a>
 <section id="section_global_06" style="float:none; position:relative; margin-left:auto; margin-right:auto; display:block; " >
-    <section class="divisor" id="divisor_up" ></section>
-
     <section id="section_06" style="" >
         <section id="content_06_section" style="" >
             <hgroup>
-                <header class="header_title" id="header_section_06" >Processo Seletivo Kakak</header>
+                <header class="header_title" id="header_section_06" >Como Entrar</header>
                 <div class="line" id="line_section_06" ></div>
             </hgroup>
 
@@ -564,7 +564,6 @@ while($row = mysql_fetch_assoc($resultado_parceiros)){
 
 
 <footer class="footer" >
-    <section class="divisor" id="divisor_up" ></section>
     <section>
         <a href="Doisnovemeia.vcf" target="" ><figure id="footer_image_logo" ></figure></a>
 

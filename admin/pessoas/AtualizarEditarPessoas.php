@@ -82,6 +82,11 @@ else if(!isset($_POST['submit'])){
         </tr>
 
         <tr>
+            <td><label for="mostrar">Mostrar: </label></td>
+            <td><input type="checkbox" name="mostrar" id="mostrar" <?php if($pessoas['mostrar'] == true){ echo "checked"; }?> /></td>
+        </tr>
+
+        <tr>
         <td>&nbsp;
         <!-- mandando o campo id para a realização da exclusão ou atualização dos dados -->
         <input name="id" id="id" type="hidden" value="<?php echo $id; ?>" />
@@ -101,6 +106,15 @@ else if(!isset($_POST['submit'])){
     {
         //pegando o id do pessoas para utilizar na cláusula
         $id = $_POST['id'];
+
+        if($_POST['mostrar'] == '')
+        {
+            $mostrar = 0;
+        }
+        else
+        {
+            $mostrar = 1;
+        }
 
         if ($_FILES["foto_file"]["error"] > 0)
         {
@@ -151,6 +165,7 @@ else if(!isset($_POST['submit'])){
             }
         }
         //
+        $resultado_pessoas_update_query .= "mostrar = '".$mostrar."',";
         $resultado_pessoas_update_query .= "foto = '".$caminho."'";
         $resultado_pessoas_update_query .= " WHERE id = ".$id;
 

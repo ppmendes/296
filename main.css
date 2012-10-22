@@ -197,6 +197,7 @@ body {
 	font-size:11pt;
 	white-space:nowrap;
 	margin:0;
+    overflow-x: hidden;
 }
 
 .section_global {
@@ -236,19 +237,12 @@ body {
 }
 
 .divisor {
-	height:12px;
-	background-size:auto 100%;
-	background-repeat-x:repeat;
-	background-repeat-y:no-repeat;
-	background-repeat:repeat-x;
-}
-
-#divisor_up {
-	background-image:url(images/divisor_up.png);
-}
-
-#divisor_down {
-	background-image:url(images/divisor_down.png);
+    background-image: url("images/separador.png");
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    height: 20px;
+    position: relative;
+    top: 10px;
 }
 
 .header_title {
@@ -536,7 +530,7 @@ body {
 #content_06_section {
 	width:500px;
 	height:500px;
-	background-color:rgba(0,0,0,0.59);
+	background-color:rgba(0,0,0,0.74);
 	position:relative;
 	-webkit-border-top-left-radius:50%;
 	border-top-left-radius:50%;
@@ -949,4 +943,11 @@ body {
 }
 .menu_ativo{
     background-image: url('images/menu_selecionado.png');
+}
+
+/* almanaque */
+
+#section_05{
+    position: relative;
+    left: 200px;
 }

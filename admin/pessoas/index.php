@@ -70,6 +70,11 @@ if(!isset($_POST['submit'])){
         </tr>
 
         <tr>
+            <td><label for="mostrar">Mostrar: </label></td>
+            <td><input type="checkbox" name="mostrar" id="mostrar" checked /></td>
+        </tr>
+
+        <tr>
         <td>&nbsp;</td>
         <td><input type="submit" name="submit" value="Inserir" /></td>
         </tr>
@@ -93,6 +98,7 @@ if(!isset($_POST['submit'])){
                 <th>Cargo</th>
                 <th>Depoimento</th>
                 <th>Tipo</th>
+                <th>Mostrar</th>
                 <th>Editar</th>
             </tr>
         </thead>
@@ -122,6 +128,13 @@ if(!isset($_POST['submit'])){
                       }
               echo  '>ex-membro</option></select></td>';
 
+              echo '<td><input type="checkbox" name="mostrar" id="mostrar"';
+
+              //checando se o parceiro é para ser exibido ou não
+              if($pessoas["mostrar"] == true){ echo "checked"; }
+
+              echo ' /></td>';
+
               echo   '<td>
                       <a class="iframe" href="AtualizarEditarPessoas.php?id='.$pessoas['id'].'">
                       <img  src="../../images/ico_editar.gif" />
@@ -141,6 +154,15 @@ include_once('../includes/rodape.php');
 }
 else
 {
+
+    if($_POST['mostrar'] == '')
+    {
+        $mostrar = 0;
+    }
+    else
+    {
+        $mostrar = 1;
+    }
   
 
     if ($_FILES["foto_file"]["error"] > 0)
@@ -168,7 +190,7 @@ else
         }
     }
 
-    $resultado_pessoas_update_query = "INSERT INTO pessoas (nome, cargo, depoimento, tipo, foto) VALUES(";
+    $resultado_pessoas_update_query = "INSERT INTO pessoas (nome, cargo, depoimento, tipo, foto, mostrar) VALUES(";
     foreach($_POST as $key => $value)
     {
         if($key != 'submit' && $key != 'mostrar')
@@ -177,7 +199,8 @@ else
         }
     }
 
-    $resultado_pessoas_update_query .= "'".$caminho."'";
+    $resultado_pessoas_update_query .= "'".$caminho."',";
+    $resultado_pessoas_update_query .= "'".$mostrar."'";
     $resultado_pessoas_update_query .= ")";
     echo $resultado_pessoas_update_query;
     mysql_query($resultado_pessoas_update_query);

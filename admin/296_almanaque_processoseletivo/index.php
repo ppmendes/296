@@ -56,17 +56,18 @@ else
     {
         if($key != 'submit')
         {
-            $resultado_296_almanaque_processoseletivo_update_query .= $key." = '". htmlspecialchars($value)."', ";
+            $resultado_296_almanaque_processoseletivo_update_query .= $key." = '". $value."', ";
         }
         if(sizeof($_POST)-1 == $i && $key != 'submit')
         {
-            $resultado_296_almanaque_processoseletivo_update_query .= $key." = '". htmlspecialchars($value)."'";
+            $resultado_296_almanaque_processoseletivo_update_query .= $key." = '". $value."'";
         }
         $i++;
 
     }
     mysql_query("SET NAMES utf8");
     mysql_query($resultado_296_almanaque_processoseletivo_update_query);
+    header('location: ../index.php');
 }
 
 include_once('../includes/rodape.php');
