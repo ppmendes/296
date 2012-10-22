@@ -1,9 +1,9 @@
 <?php
 
 //linux
-//$base_url = "/var/www/296";
+$base_url = "/var/www/296";
 //windows
-$base_url = "C:/wamp/www/296";
+//$base_url = "C:/wamp/www/296";
 include($base_url."/login/seguranca.php");
 
 mysql_query("SET NAMES utf8");
@@ -11,6 +11,28 @@ mysql_query("SET NAMES utf8");
 $sql_296_almanaque_processoseletivo = "SELECT * from `296_almanaque_processoseletivo`";
 $resultado_296_almanaque_processoseletivo = mysql_query($sql_296_almanaque_processoseletivo);
 $array_296_almanaque_processoseletivo = mysql_fetch_array($resultado_296_almanaque_processoseletivo);
+
+//selecionando dados de clientes_atuais
+$sql_clientes_atuais = "SELECT * from `clientes_parceiros` WHERE tipo = 'cliente_atual'";
+$resultado_clientes_atuais = mysql_query($sql_clientes_atuais);
+while($row = mysql_fetch_assoc($resultado_clientes_atuais)){
+    $array_clientes_atuais[] = $row;
+}
+
+
+//selecionando dados de clientes_antigos
+$sql_clientes_antigos = "SELECT * from `clientes_parceiros` WHERE tipo = 'cliente_antigo'";
+$resultado_clientes_antigos = mysql_query($sql_clientes_antigos);
+while($row = mysql_fetch_assoc($resultado_clientes_antigos)){
+    $array_clientes_antigos[] = $row;
+}
+
+//selecionando dados de parceiros
+$sql_parceiros = "SELECT * from `clientes_parceiros` WHERE tipo = 'parceiro'";
+$resultado_parceiros = mysql_query($sql_parceiros);
+while($row = mysql_fetch_assoc($resultado_parceiros)){
+    $array_parceiros[] = $row;
+}
 
 ?>
 
@@ -454,75 +476,30 @@ $array_296_almanaque_processoseletivo = mysql_fetch_array($resultado_296_almanaq
 <section id="clientes_section" class="content_04" style="" >
 <header class="header_title" id="header_section_04" >Clientes Atuais</header>
 <div class="div_space" style="padding-bottom:1px; " ></div>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/clientes/clientes_atuais_01.png); " >
-        
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/clientes/clientes_atuais_02.png); " >
-        
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/clientes/clientes_atuais_03.png); " >
-        
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/clientes/clientes_atuais_04.png); " >
-        
-    </figure>
-</section>
+    <?php foreach($array_clientes_atuais as $cliente_atual): ?>
+        <section>
+            <a href="<?php echo $cliente_atual['link'] ?>">
+            <figure class="figure_cliente" style="background-image:url('<?php echo $cliente_atual['logo'] ?>'); " >
+
+            </figure>
+            </a>
+        </section>
+    <?php endforeach; ?>
+
 <div class="div_space" style="height:50px; " ></div>
 
 <header class="header_title" id="header_section_04" >Clientes antigos</header>
 <div class="div_space" style="padding-bottom:1px; " ></div>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/clientes/clientes_antigos_01.png); " >
-        
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/clientes/clientes_antigos_02.png); " >
-        
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/clientes/clientes_antigos_03.png); " >
-        
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/clientes/clientes_antigos_04.png); " >
-        
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/clientes/clientes_antigos_05.png); " >
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/clientes/clientes_antigos_06.png); " >
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/clientes/clientes_antigos_07.png); " >
-        
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/clientes/clientes_antigos_08.png); " >
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/clientes/clientes_antigos_09.png); " >
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/clientes/clientes_antigos_10.png); " >
-    </figure>
-</section>
+    <?php foreach($array_clientes_antigos as $cliente_antigo): ?>
+    <section>
+        <a href="<?php echo $cliente_antigo['link'] ?>">
+        <figure class="figure_cliente" style="background-image:url('<?php echo $cliente_antigo['logo'] ?>'); " >
+
+        </figure>
+        </a>
+    </section>
+    <?php endforeach; ?>
+
 
 
 <div class="div_space" style="height:150px; " ></div>
@@ -530,61 +507,16 @@ $array_296_almanaque_processoseletivo = mysql_fetch_array($resultado_296_almanaq
 <section id="parceiros_section" class="content_04" style="" >
 <header class="header_title" id="header_section_04" >Parceiros</header>
 <div class="div_space" style="padding-bottom:1px; " ></div>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/parceiros/parceiros_01.png);"></figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/parceiros/parceiros_02.png); " ></figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/parceiros/parceiros_03.png); " >
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/parceiros/parceiros_04.png); " >
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/parceiros/parceiros_05.png); " >
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/parceiros/parceiros_06.png); " >
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/parceiros/parceiros_07.png); " >
-        
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/parceiros/parceiros_08.png); " >
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/parceiros/parceiros_09.png); " >
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/parceiros/parceiros_10.png); " >
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/parceiros/parceiros_11.png); " >
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/parceiros/parceiros_12.png); " >
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/parceiros/parceiros_13.png); " >
-    </figure>
-</section>
-<section>
-    <figure class="figure_cliente" style="background-image:url(images/parceiros/parceiros_14.png); " >
-    </figure>
-</section>
+    <?php foreach($array_parceiros as $parceiro): ?>
+    <section>
+        <a href="<?php echo $parceiro['link'] ?>">
+        <figure class="figure_cliente" style="background-image:url('<?php echo $parceiro['logo'] ?>'); " >
+
+        </figure>
+        </a>
+    </section>
+    <?php endforeach; ?>
+
 </section>
 </section>
 </section>
