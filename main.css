@@ -932,3 +932,13 @@ body {
     right: 20px;
     top: 10px;
 }
+.menu li a{
+    padding-top: 20px;
+    height: 33px;
+    margin-top: -20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.menu_ativo{
+    background-image: url('images/menu_selecionado.png');
+}
