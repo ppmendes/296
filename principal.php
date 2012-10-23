@@ -91,7 +91,6 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
     <script type="text/javascript" src="js/widgets.js" ></script>
 
     <script type="text/javascript" src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-    <script type="text/javascript" src="js/fancybox/jquery.easing-1.4.pack.js"></script>
     <link rel="stylesheet" href="js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
 
     <!-- Scroll Script -->
