@@ -35,7 +35,7 @@ while($row = mysql_fetch_assoc($resultado_parceiros)){
 }
 
 //selecionando dados de portfolio
-$sql_portfolio = "SELECT * from `portfolio`";
+$sql_portfolio = "SELECT * from `portfolio` WHERE mostrar = 1";
 $resultado_portfolio = mysql_query($sql_portfolio);
 while($row = mysql_fetch_assoc($resultado_portfolio)){
     $array_portfolio[] = $row;

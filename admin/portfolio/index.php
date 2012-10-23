@@ -58,6 +58,11 @@ if(!isset($_POST['submit'])){
         </tr>
 
         <tr>
+            <td><label for="mostrar">Mostrar: </label></td>
+            <td><input type="checkbox" name="mostrar" id="mostrar" checked /></td>
+        </tr>
+
+        <tr>
         <td>&nbsp;</td>
         <td><input type="submit" name="submit" value="Inserir" /></td>
         </tr>
@@ -79,6 +84,7 @@ if(!isset($_POST['submit'])){
                 <th>Foto Pequena</th>
                 <th>Foto Grande</th>
                 <th>Descrição</th>
+                <th>Mostrar</th>
                 <th>Editar</th>
             </tr>
         </thead>
@@ -91,7 +97,14 @@ if(!isset($_POST['submit'])){
 
                     <td><img width="150px" height="40px" src="../../'.$portfolio['foto_grande'].'"/></td>
 
-                    <td>'.$portfolio['descricao'].'</td>';
+                    <td>'.$portfolio['descricao'].'</td>
+
+                    <td><input type="checkbox" disabled="disabled" name="mostrar" id="mostrar"';
+
+                      //checando se é para ser exibido ou não
+                      if($portfolio["mostrar"] == true){ echo "checked"; }
+
+                      echo ' /></td>';
 
               echo   '<td>
                       <a class="iframe" href="AtualizarEditarPortfolio.php?id='.$portfolio['id'].'">

@@ -110,7 +110,7 @@ if(!isset($_POST['submit'])){
 
                     <td>'.$cliente_parceiro['tipo'].'</td>
 
-                    <td><input type="checkbox" name="mostrar" id="mostrar"';
+                    <td><input type="checkbox" disabled="disabled" name="mostrar" id="mostrar"';
 
               //checando se o parceiro é para ser exibido ou não
               if($cliente_parceiro["mostrar"] == true){ echo "checked"; }

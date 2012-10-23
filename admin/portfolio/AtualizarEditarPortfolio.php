@@ -72,6 +72,11 @@ else if(!isset($_POST['submit'])){
         </tr>
 
         <tr>
+            <td><label for="mostrar">Mostrar: </label></td>
+            <td><input type="checkbox" name="mostrar" id="mostrar" <?php if($portfolio['mostrar'] == true){ echo "checked"; }?> /></td>
+        </tr>
+
+        <tr>
         <td>&nbsp;
         <!-- mandando o campo id para a realização da exclusão ou atualização dos dados -->
         <input name="id" id="id" type="hidden" value="<?php echo $id; ?>" />
