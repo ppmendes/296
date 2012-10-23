@@ -1,8 +1,8 @@
 <?php
 //linux
-$base_url = "/var/www/296";
+//$base_url = "/var/www/296";
 //windows
-//$base_url = "C:/wamp/www/296";
+$base_url = "C:/wamp/www/296";
 include($base_url."/login/seguranca.php");
 
 mysql_query("SET NAMES utf8");
