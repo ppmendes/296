@@ -1,8 +1,8 @@
 <?php
 //linux
-//$base_url = "/var/www/296";
+$base_url = "/var/www/296";
 //windows
-$base_url = "C:/wamp/www/296";
+//$base_url = "C:/wamp/www/296";
 include($base_url."/login/seguranca.php");
 
 mysql_query("SET NAMES utf8");
@@ -10,17 +10,11 @@ $sql = "SELECT * from `introducao_verbo` ORDER BY nome_verbo ASC ";
 $resultado = mysql_query($sql);
 
 $lista = '';
-$i=0;
 
 while ($verbo_introducao = mysql_fetch_array($resultado)){
-    if($i==0){
-		$lista .= "<li class=\"invisivel\">{$verbo_introducao['nome_verbo']}</li>";
-		$selecionado = $verbo_introducao['nome_verbo'];
-	}
-    else{
-        $lista .= "<li>{$verbo_introducao['nome_verbo']}</li>";
-    }
-    $i++;
+
+    $lista .= "<li>{$verbo_introducao['nome_verbo']}</li>";
+
 }
 
 ?>
@@ -152,14 +146,14 @@ while ($verbo_introducao = mysql_fetch_array($resultado)){
 	<body style="background-image:url(../images/bg/pattern1.jpg); height:100%; overflow:hidden; margin:0; " >
     <figure style="position:absolute; bottom: 0; right: 0; width:160px; height:50px; margin-right:2%; background-color:transparent; margin-top:0; background-image:url(../images/296_2010.png); background-position:50% 0%; background-position-x:50%; background-position-y:0%; background-size:auto 100%; background-repeat-x:no-repeat; background-repeat-y:no-repeat; background-repeat:no-repeat; " ></figure>
 		<section id="main" style="height:100%; " >
-			<hgroup style="background-color:transparent; height:50px; font-family:'UnB Pro', Helvetica; text-shadow:rgb(255, 255, 255) 1px 2px 3px; font-size:1.2em; " ><a href="../principal.php" target="" name="" ><nav style="position:relative; float:right; width:auto; margin-right:2%; background-color:transparent; text-align:center; text-transform:uppercase; font-family:inherit; padding-top:1%; color: #000; font-size: 0.5em; " >Pular</nav></a></hgroup>
-			<section id="content" style="width:100%; min-width:800px; height:600px; min-height:500px; " ><section style="position:relative; float:none; margin-left:auto; margin-right:auto; display:block; min-width:600px; height:600px; font-family:'UnB Pro', Helvetica; line-height:2em; text-shadow:rgba(0, 0, 0, 0.496094) 0px 0px 2px; text-rendering:geometricprecision; font-weight:normal; font-style:normal; color:#4DB848; width:900px; " ><section style="position:relative; background-color:transparent; float:left; display:block; width:160px; height:100%; " >
+			<hgroup style="background-color:transparent; height:50px; font-family:'UnBPro-RegularRegular', Helvetica; text-shadow:rgb(255, 255, 255) 1px 2px 3px; font-size:1.2em; " ><a href="../principal.php" target="" name="" ><nav style="position:relative; float:right; width:auto; margin-right:2%; background-color:transparent; text-align:center; text-transform:uppercase; font-family:inherit; padding-top:1%; color: #000; font-size: 0.5em; " >Pular</nav></a></hgroup>
+			<section id="content" style="width:100%; min-width:800px; height:600px; min-height:500px; " ><section style="position:relative; float:none; margin-left:auto; margin-right:auto; display:block; min-width:600px; height:600px; font-family:'UnBPro-RegularRegular', Helvetica; line-height:2em; text-shadow:rgba(0, 0, 0, 0.496094) 0px 0px 2px; text-rendering:geometricprecision; font-weight:normal; font-style:normal; color:#4DB848; width:900px; " ><section style="position:relative; background-color:transparent; float:left; display:block; width:160px; height:100%; " >
                 <article style="color: #000; height:44px; position:absolute; width:100%; top:40%; background-color:transparent; text-align:right; font-size:3em; " >Nós</article>
             </section>
             <section style="position:relative; background-color:transparent; float:left; display:block; width:380px; height:100%; padding-right:5px; padding-left:5px; " >
                 <div class="select_lista">
                     <div class="envelope">
-                        <div class="select"><?php echo $selecionado; ?></div><div class="botao_seta">&nbsp;</div>
+                        <div class="select"></div><div class="botao_seta">&nbsp;</div>
                     </div>
                     <ul class="invisivel">
                         <?php echo $lista; ?>

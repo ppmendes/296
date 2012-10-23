@@ -83,10 +83,21 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
     <script type="text/javascript" src="js/jquery.anchor.js" ></script>
     <script type="text/javascript" src="js/widgets.js" ></script>
 
+    <script type="text/javascript" src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+    <script type="text/javascript" src="js/fancybox/jquery.easing-1.4.pack.js"></script>
+    <link rel="stylesheet" href="js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+
     <!-- Scroll Script -->
     <script type="text/javascript" >
         // Initialize the plugin with no custom options
         $(document).ready(function () {
+            $("a.fancybox").fancybox({
+                'transitionIn'	:	'elastic',
+                'transitionOut'	:	'elastic',
+                'speedIn'		:	600,
+                'speedOut'		:	200,
+                'overlayShow'	:	false
+            });
             if(window.location.hash == '' || window.location.hash == '#'){
                 $('.menu > li > .menu_ativo').removeClass('menu_ativo');
                 $('.menu > li > a[href="#agencia"]').addClass('menu_ativo');
@@ -384,7 +395,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
                 </section>
                 <section style="height: 130px; float: left; border-left: solid 1px #FFFFFF; margin-top: 190px; margin-left: 10px;">&nbsp;</section>
                 <section style="min-height:480px; width: 500px; float: left; overflow: hidden; margin-top: 170px;">
-                    <article class="header_section_02" style="white-space: normal; color:#FFFFFF; font-weight:normal; margin-top:10px; font-size: 24px; line-height: 40px; " >
+                    <article class="header_section_02" style="font-family:'PopulaireMedium';white-space: normal; color:#FFFFFF; font-weight:normal; margin-top:10px; font-size: 32px; line-height: 40px; " >
                         <image src="images/abre_aspas.png">
                             A DOIS É UM LUGAR ONDE A
                             GENTE APRENDE MUITO E FAZ
@@ -431,7 +442,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 
             <section class="portifolio_div" >
                 <section class="portifolio_item" style="background-image:url(images/portifolio/01.jpg); " >
-                    <a href="#" target="" name="" ><section style="width:100%; height:100%; " >
+                    <a class="fancybox" href="images/portifolio/01.jpg" target="" name="" ><section style="width:100%; height:100%; " >
                         <header class="portifolio_header" >Título para a seção 01<br></header>
                     </section></a>
                 </section>
@@ -482,7 +493,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 <div class="div_space" style="padding-bottom:1px; " ></div>
     <?php foreach($array_clientes_atuais as $cliente_atual): ?>
         <section>
-            <a href="<?php echo $cliente_atual['link'] ?>">
+            <a target="_blank" href="<?php echo $cliente_atual['link'] ?>">
             <figure class="figure_cliente" style="background-image:url('<?php echo $cliente_atual['logo'] ?>'); " >
 
             </figure>
@@ -496,7 +507,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 <div class="div_space" style="padding-bottom:1px; " ></div>
     <?php foreach($array_clientes_antigos as $cliente_antigo): ?>
     <section>
-        <a href="<?php echo $cliente_antigo['link'] ?>">
+        <a target="_blank" href="<?php echo $cliente_antigo['link'] ?>">
         <figure class="figure_cliente" style="background-image:url('<?php echo $cliente_antigo['logo'] ?>'); " >
 
         </figure>
@@ -513,7 +524,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 <div class="div_space" style="padding-bottom:1px; " ></div>
     <?php foreach($array_parceiros as $parceiro): ?>
     <section>
-        <a href="<?php echo $parceiro['link'] ?>">
+        <a target="_blank" href="<?php echo $parceiro['link'] ?>">
         <figure class="figure_cliente" style="background-image:url('<?php echo $parceiro['logo'] ?>'); " >
 
         </figure>
