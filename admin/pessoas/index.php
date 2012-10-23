@@ -116,19 +116,13 @@ if(!isset($_POST['submit'])){
 
                     <td>'.$pessoas['depoimento'].'</td>
 
-                    <td><select>
-                    <option value="membro"';
-                      if($pessoas['tipo'] == 'membro'){
-                          echo ' selected="selected" ';
-                      }
-                      echo  '>membro</option>'.
-                            '<option value="ex-membro"';
-                      if($pessoas['tipo'] == 'ex-membro'){
-                          echo ' selected="selected" ';
-                      }
-              echo  '>ex-membro</option></select></td>';
+                    <td>';
 
-              echo '<td><input type="checkbox" name="mostrar" id="mostrar"';
+                    echo $pessoas['tipo'];
+
+                    echo '</td>';
+
+                    echo '<td><input type="checkbox" disabled="disabled" name="mostrar" id="mostrar"';
 
               //checando se o parceiro é para ser exibido ou não
               if($pessoas["mostrar"] == true){ echo "checked"; }

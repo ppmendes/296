@@ -19,17 +19,14 @@ if(!isset($_POST['submit'])){
 ?>
 <script type="text/javascript">
     $(document).ready(function() {
+
         $("a.iframe").fancybox({
-            'width'				: 500,
+            'width'				: 900,
+            'height'            : 480,
             'autoScale'			: false,
             'transitionIn'			: 'none',
             'transitionOut'			: 'none',
-            'type'				: 'iframe',
-            'onComplete' : function() {
-                $('#fancybox-frame').load(function() { // wait for frame to load and then gets it's height
-                    $('#fancybox-content').height($(this).contents().find('body').height()+30);
-                });
-            }
+            'type'				: 'iframe'
         });
     });
 </script>
@@ -50,8 +47,13 @@ if(!isset($_POST['submit'])){
             </tr>
 
             <tr>
-                <td><label for="ficha_tecnica">Ficha Técnica: </label></td>
-                <td><textarea type="text" name="ficha_tecnica" id="ficha_tecnica"></textarea></td>
+                <td><label for="ficha_tecnica" >Ficha Técnica: </label></td>
+                <td><textarea type="text" class="tinymce"  name="ficha_tecnica" id="ficha_tecnica"></textarea></td>
+            </tr>
+
+            <tr>
+                <td><label for="mostrar" >Mostrar: </label></td>
+                <td><input type="checkbox" name="mostrar" id="mostrar" /></td>
             </tr>
 
             <tr>
@@ -75,6 +77,7 @@ if(!isset($_POST['submit'])){
                 <th>Nome</th>
                 <th>Imagem de Fundo</th>
                 <th>Ficha Técnica</th>
+                <th>Mostrar</th>
                 <th>Editar</th>
             </tr>
         </thead>
@@ -90,6 +93,12 @@ if(!isset($_POST['submit'])){
 
                         <td>'.$verbo_introducao['ficha_tecnica'].'</td>
 
+                        <td><input type="checkbox" disabled="disabled" name="mostrar" id="mostrar"';
+
+                        //checando se o parceiro é para ser exibido ou não
+                        if($verbo_introducao["mostrar"] == true){ echo "checked"; }
+
+              echo ' /></td>
                         <td>
                             <a class="iframe" href="atualizarIntroducaoVerbo.php?id='.$verbo_introducao['id'].'">
                             <img  src="../../images/ico_editar.gif" />
@@ -108,6 +117,14 @@ include_once('../includes/rodape.php');
 }
 else
 {
+    if($_POST['mostrar'] == '')
+    {
+        $mostrar = 0;
+    }
+    else
+    {
+        $mostrar = 1;
+    }
    
     if ($_FILES["imagem_file"]["error"] > 0)
     {
@@ -136,17 +153,18 @@ else
             }
     }
 
-    $resultado_verbos_insert_query = "INSERT INTO introducao_verbo (nome_verbo, ficha_tecnica, imagem_fundo) VALUES(";
+    $resultado_verbos_insert_query = "INSERT INTO introducao_verbo (nome_verbo, ficha_tecnica, imagem_fundo, mostrar) VALUES(";
 
     foreach($_POST as $key => $value)
     {
-        if($key != 'submit')
+        if($key != 'submit' && $key != 'mostrar')
         {
-           $resultado_verbos_insert_query .= "'".htmlspecialchars($value)."', ";
+           $resultado_verbos_insert_query .= "'".$value."', ";
         }
     }
 
-   $resultado_verbos_insert_query .= "'".$caminho."'";
+   $resultado_verbos_insert_query .= "'".$caminho."',";
+    $resultado_verbos_insert_query .= "".$mostrar."";
    $resultado_verbos_insert_query .= ")";
 
     echo $resultado_verbos_insert_query;

@@ -97,6 +97,17 @@ else if(!isset($_POST['submit'])){
         //pegando o id do portfolio para utilizar na cláusula
         $id = $_POST['id'];
 
+        if($_POST['mostrar'] == '')
+        {
+            $mostrar = 0;
+        }
+        else
+        {
+            $mostrar = 1;
+        }
+
+
+
         if ($_FILES["fotopequena_file"]["error"] > 0 && $_FILES["fotopequena_file"]["error"] > 0)
         {
             echo "Return Code: " . $_FILES["fotopequena_file"]["error"] . "<br />";
@@ -163,14 +174,15 @@ else if(!isset($_POST['submit'])){
         foreach($_POST as $key => $value)
         {
             //adiconar chaves que não devem ser incluidas na query
-            if($key != 'submit' && $key != 'imagempequena_antiga' && $key != 'imagemgrande_antiga' && $key != 'id')
+            if($key != 'submit' && $key != 'imagempequena_antiga' && $key != 'imagemgrande_antiga' && $key != 'id' && $key != 'mostrar')
             {
                 $resultado_portfolio_update_query .= $key." = '".$value."', ";
             }
         }
         //
         $resultado_portfolio_update_query .= "foto_pequena = '".$caminho_pequeno."', ";
-        $resultado_portfolio_update_query .= "foto_grande = '".$caminho_grande."'";
+        $resultado_portfolio_update_query .= "foto_grande = '".$caminho_grande."',";
+        $resultado_portfolio_update_query .= "mostrar = ".$mostrar."";
         $resultado_portfolio_update_query .= " WHERE id = ".$id;
 
         echo $resultado_portfolio_update_query;

@@ -13,7 +13,7 @@ $resultado_296_almanaque_processoseletivo = mysql_query($sql_296_almanaque_proce
 $array_296_almanaque_processoseletivo = mysql_fetch_array($resultado_296_almanaque_processoseletivo);
 
 //selecionando dados de clientes_atuais
-$sql_clientes_atuais = "SELECT * from `clientes_parceiros` WHERE tipo = 'cliente_atual'";
+$sql_clientes_atuais = "SELECT * from `clientes_parceiros` WHERE tipo = 'cliente_atual' and mostrar = 1";
 $resultado_clientes_atuais = mysql_query($sql_clientes_atuais);
 while($row = mysql_fetch_assoc($resultado_clientes_atuais)){
     $array_clientes_atuais[] = $row;
@@ -21,14 +21,14 @@ while($row = mysql_fetch_assoc($resultado_clientes_atuais)){
 
 
 //selecionando dados de clientes_antigos
-$sql_clientes_antigos = "SELECT * from `clientes_parceiros` WHERE tipo = 'cliente_antigo'";
+$sql_clientes_antigos = "SELECT * from `clientes_parceiros` WHERE tipo = 'cliente_antigo' and mostrar = 1";
 $resultado_clientes_antigos = mysql_query($sql_clientes_antigos);
 while($row = mysql_fetch_assoc($resultado_clientes_antigos)){
     $array_clientes_antigos[] = $row;
 }
 
 //selecionando dados de parceiros
-$sql_parceiros = "SELECT * from `clientes_parceiros` WHERE tipo = 'parceiro'";
+$sql_parceiros = "SELECT * from `clientes_parceiros` WHERE tipo = 'parceiro' and mostrar = 1";
 $resultado_parceiros = mysql_query($sql_parceiros);
 while($row = mysql_fetch_assoc($resultado_parceiros)){
     $array_parceiros[] = $row;
@@ -42,7 +42,7 @@ while($row = mysql_fetch_assoc($resultado_portfolio)){
 }
 
 mysql_query("SET NAMES utf8");
-$sql_pessoas = "SELECT * from `pessoas`";
+    $sql_pessoas = "SELECT * from `pessoas` WHERE mostrar = 1";
 $resultado_pessoas = mysql_query($sql_pessoas);
 while($row = mysql_fetch_assoc($resultado_pessoas)){
     if($row['tipo'] == 'membro')
@@ -327,60 +327,40 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
             <section id="membros_section" class="section_alphablack" id="alphablack_membros" >
                 <section id="note_pessoas" >
                     <hgroup>
-                        <header id="nomeMembro" class="header_section_02" style="color:#4DB848; font-weight:bold; margin-top:20px; " >Nome do membro</header>
-                        <header id="cargoMembro" class="header_section_02" style="color:#4DB848; font-style:oblique; margin-top:5px; " >Cargo</header>
+                        <header id="nomeMembro" class="header_section_02" style="height: 15px; color:#4DB848; font-weight:bold; margin-top:20px; " ></header>
+                        <header id="cargoMembro" class="header_section_02" style="height: 20px; color:#4DB848; font-style:oblique; margin-top:5px; " ></header>
                     </hgroup>
                     <article class="header_section_02" style="color:#FFFFFF; font-weight:normal; margin-top:10px; " >
-                        Uma agência de<br>
-                        publicidade formada<br>
-                        só por estudantes.<br>
+                        Cada membro passa<br>
+                        cerca de um ano e dois<br>
+                        meses aqui, e essas são<br>
+                        as pessoas que estão na<br>
+                        Doisnovemeia hoje.<br>
                     </article>
                 </section>
 
                 <div style="float:left; width:760px; position:relative; margin-top:0; margin-left:0; height:auto; " >
                     <?php
-                    foreach($array_pessoas_membros as $pessoas_membros)
+                    for($i = 0 ; $i < sizeof($array_pessoas_membros) && $i < 16; $i++)
                     {
+                         $pessoas_membros = $array_pessoas_membros[$i];
                     ?>
-                        <figure onmouseover="atualizaNomeCargoMembro('<?php echo $pessoas_membros['nome']; ?>','<?php echo $pessoas_membros['cargo']; ?>');" onmouseout="atualizaNomeCargoMembro('Nome do Membro','Cargo do Membro');" class="figure_pessoas" style="background-image:url(<?php echo $pessoas_membros['foto'] ?>); " ></figure>
+                        <figure onmouseover="atualizaNomeCargoMembro('<?php echo $pessoas_membros['nome']; ?>','<?php echo $pessoas_membros['cargo']; ?>');" onmouseout="atualizaNomeCargoMembro('','');" class="figure_pessoas" style="background-image:url(<?php echo $pessoas_membros['foto'] ?>); " ></figure>
                     <?php
                     }
                     ?>
                 </div>
 
-                <div style="width:100%; height:auto; float:left; position:relative; margin-top:0; " >
-                <!--
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/01.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/02.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/03.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/04.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/05.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/06.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/07.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/08.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/09.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/10.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/01.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/02.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/03.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/04.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/05.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/06.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/07.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/08.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/09.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/10.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/01.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/02.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/03.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/04.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/05.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/06.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/07.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/08.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/09.jpg); " ></figure>
-                    <figure class="figure_pessoas" style="background-image:url(images/pessoas/10.jpg); " ></figure>
-                -->
+                <div style="width:990px; position:relative; margin-top:0; margin-left:0; height:auto; float: left;" >
+                    <?php
+                    for($i >= 16 ; $i < sizeof($array_pessoas_membros) && $i >= 16; $i++)
+                    {
+                        $pessoas_membros = $array_pessoas_membros[$i];
+                    ?>
+                        <figure onmouseover="atualizaNomeCargoMembro('<?php echo $pessoas_membros['nome']; ?>','<?php echo $pessoas_membros['cargo']; ?>');" onmouseout="atualizaNomeCargoMembro('','');" class="figure_pessoas" style="background-image:url(<?php echo $pessoas_membros['foto'] ?>); " ></figure>
+                    <?php
+                    }
+                    ?>
                 </div>
             </section>
 
@@ -560,7 +540,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 
 <footer class="footer" >
     <section>
-        <a href="Doisnovemeia.vcf" target="" ><figure id="footer_image_logo" ></figure></a>
+        <a href="#" target="" ><figure id="footer_image_logo" ></figure></a>
 
         <aside style="width:auto; height:auto; float:right; margin-top:50px; margin-right:2%; " >
             <address style="font-family:unb_officeregular; color:#FFFFFF; text-align:right; font-style:normal; font-size:10pt; line-height:1.3em; " >

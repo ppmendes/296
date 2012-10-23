@@ -125,6 +125,15 @@ include_once('../includes/rodape.php');
 }
 else
 {
+
+    if($_POST['mostrar'] == '')
+    {
+        $mostrar = 0;
+    }
+    else
+    {
+        $mostrar = 1;
+    }
   
 
     if ($_FILES["fotopequena_file"]["error"] > 0 && $_FILES["fotogrande_file"]["error"] )
@@ -167,19 +176,20 @@ else
         }
     }
 
-    $resultado_portfolio_update_query = "INSERT INTO portfolio (descricao, foto_pequena, foto_grande) VALUES(";
+    $resultado_portfolio_update_query = "INSERT INTO portfolio (descricao, foto_pequena, foto_grande, mostrar) VALUES(";
     foreach($_POST as $key => $value)
     {
-        if($key != 'submit')
+        if($key != 'submit' && $key != 'mostrar')
         {
-            $resultado_portfolio_update_query .= "'".htmlspecialchars($value)."', ";
+            $resultado_portfolio_update_query .= "'".$value."', ";
         }
     }
 
     $resultado_portfolio_update_query .= "'".$caminho_pequeno."',";
-    $resultado_portfolio_update_query .= "'".$caminho_grande."'";
+    $resultado_portfolio_update_query .= "'".$caminho_grande."',";
+    $resultado_portfolio_update_query .= "".$mostrar."";
     $resultado_portfolio_update_query .= ")";
-    echo $resultado_portfolio_update_query;
+    $resultado_portfolio_update_query;
     mysql_query($resultado_portfolio_update_query);
     header("location: index.php?sucesso=sim");
 }

@@ -65,7 +65,7 @@ else
         $i++;
 
     }
-    mysql_query("SET NAMES utf8");
+    //mysql_query("SET NAMES utf8");
     mysql_query($resultado_296_almanaque_processoseletivo_update_query);
     header('location: ../index.php');
 }

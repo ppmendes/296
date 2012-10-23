@@ -55,13 +55,24 @@ else if(!isset($_POST['submit'])){
         <td>
             <img width="150px" height="40px" src='<?php echo "../../".$verbo['imagem_fundo'] ?>' />
             <input type="hidden" name="imagem_antiga" value='<?php echo $verbo['imagem_fundo'] ?>' />
+            <br />
             <input type="file" name="imagem_file" id="imagem_file" />
         </td>
         </tr>
         <!---->
         <tr>
         <td><label for="ficha_tecnica">Ficha Técnica: </label></td>
-        <td><input type="text" name="ficha_tecnica" id="ficha_tecnica" value="<?php echo $verbo['ficha_tecnica']; ?>" /></td>
+        <td><textarea name="ficha_tecnica" id="ficha_tecnica" class="tinymce">
+                <?php echo $verbo['ficha_tecnica']; ?>
+            </textarea>
+        </td>
+        </tr>
+
+        <tr>
+            <td><label for="mostrar">Mostrar: </label></td>
+            <td>
+            <input type="checkbox"  name="mostrar" id="mostrar" <?php if($verbo['mostrar'] == true){ echo "checked"; }?> />
+            </td>
         </tr>
         <!-- -->
 
@@ -85,6 +96,15 @@ else if(!isset($_POST['submit'])){
     {
         //pegando o id do verbo para utilizar na cláusula
         $id = $_POST['id'];
+
+        if($_POST['mostrar'] == '')
+        {
+            $mostrar = 0;
+        }
+        else
+        {
+            $mostrar = 1;
+        }
 
         if ($_FILES["imagem_file"]["error"] > 0)
         {
@@ -135,13 +155,14 @@ else if(!isset($_POST['submit'])){
         foreach($_POST as $key => $value)
         {
             //adiconar chaves que não devem ser incluidas na query
-            if($key != 'submit' && $key != 'imagem_antiga' && $key != 'id')
+            if($key != 'submit' && $key != 'imagem_antiga' && $key != 'id' && $key != 'mostrar')
             {
                 $resultado_verbo_update_query .= $key." = '".$value."', ";
             }
         }
         //
-        $resultado_verbo_update_query .= "imagem_fundo = '".$caminho."'";
+        $resultado_verbo_update_query .= "imagem_fundo = '".$caminho."',";
+        $resultado_verbo_update_query .= "mostrar = ".$mostrar."";
         $resultado_verbo_update_query .= " WHERE id = ".$id;
 
         echo $resultado_verbo_update_query;
