@@ -34,6 +34,13 @@ while($row = mysql_fetch_assoc($resultado_parceiros)){
     $array_parceiros[] = $row;
 }
 
+//selecionando dados de portfolio
+$sql_portfolio = "SELECT * from `portfolio`";
+$resultado_portfolio = mysql_query($sql_portfolio);
+while($row = mysql_fetch_assoc($resultado_portfolio)){
+    $array_portfolio[] = $row;
+}
+
 mysql_query("SET NAMES utf8");
 $sql_pessoas = "SELECT * from `pessoas`";
 $resultado_pessoas = mysql_query($sql_pessoas);
@@ -440,41 +447,18 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
                 </article>
             </section>
 
-            <section class="portifolio_div" >
-                <section class="portifolio_item" style="background-image:url(images/portfolio/01.jpg); " >
-                    <a class="fancybox" href="images/portfolio/01.jpg" target="" name="" ><section style="width:100%; height:100%; " >
-                        <header class="portifolio_header" >Título para a seção 01<br></header>
-                    </section></a>
-                </section>
-            </section>
-            <section class="portifolio_div" >
-                <section class="portifolio_item" style="background-image:url(images/portfolio/02.jpg); " >
-                    <a href="#" target="" name="" ><section style="width:100%; height:100%; " >
-                        <header class="portifolio_header" >Título para a seção 02<br></header>
+            <?php foreach($array_portfolio as $portfolio): ?>
+                <section class="portifolio_div" >
+
+                    <section class="portifolio_item" style="background-image:url('<?php echo $portfolio['foto_pequena']; ?>'); " >
+                        <a class="fancybox" href="<?php echo $portfolio['foto_grande']; ?>" target="" name="" ><section style="width:100%; height:100%; " >
+                            <header class="portifolio_header" ><?php echo $portfolio['descricao']; ?><br></header>
+                        </section></a>
                     </section>
+
                 </section>
-            </section>
-            <section class="portifolio_div" >
-                <section class="portifolio_item" style="background-image:url(images/portfolio/03.jpg); " >
-                    <a href="#" target="" name="" ><section style="width:100%; height:100%; " >
-                        <header class="portifolio_header" >Título para a seção 03<br></header>
-                    </section>
-                </section>
-            </section>
-            <section class="portifolio_div" >
-                <section class="portifolio_item" style="background-image:url(images/portfolio/04.jpg); " >
-                    <a href="#" target="" name="" ><section style="width:100%; height:100%; " >
-                        <header class="portifolio_header" >Título para a seção 04<br></header>
-                    </section>
-                </section>
-            </section>
-            <section class="portifolio_div" id="portifolio_last" >
-                <section class="portifolio_item" style="background-image:url(images/portfolio/05.jpg); " >
-                    <a href="#" target="" name="" ><section style="width:100%; height:100%; " >
-                        <header class="portifolio_header" >Título para a seção 05<br></header>
-                    </section>
-                </section>
-            </section>
+            <?php endforeach; ?>
+
 
 
         </section>
