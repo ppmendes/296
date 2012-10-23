@@ -103,7 +103,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
                 'transitionOut'	:	'elastic',
                 'speedIn'		:	600,
                 'speedOut'		:	200,
-                'overlayShow'	:	false
+                'overlayShow'	:	true
             });
             if(window.location.hash == '' || window.location.hash == '#'){
                 $('.menu > li > .menu_ativo').removeClass('menu_ativo');
