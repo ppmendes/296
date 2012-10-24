@@ -50,6 +50,10 @@ if(!isset($_POST['submit'])){
         <td><input type="file" name="foto_file" id="foto_file" /></td>
         </tr>
         <!---->
+        <tr>
+            <td><label for="fotocareta_file">Foto Careta: </label></td>
+            <td><input type="file" name="fotocareta_file" id="fotocareta_file" /></td>
+        </tr>
 
         <tr>
         <td><label for="cargo">Cargo: </label></td>
@@ -95,6 +99,7 @@ if(!isset($_POST['submit'])){
             <tr>
                 <th>Nome</th>
                 <th>Foto</th>
+                <th>Foto Careta</th>
                 <th>Cargo</th>
                 <th>Depoimento</th>
                 <th>Tipo</th>
@@ -111,6 +116,8 @@ if(!isset($_POST['submit'])){
                     <td>'.$pessoas['nome'].'</td>
 
                     <td><img width="150px" height="40px" src="../../'.$pessoas['foto'].'"/></td>
+
+                    <td><img width="150px" height="40px" src="../../'.$pessoas['foto_careta'].'"/></td>
 
                     <td>'.$pessoas['cargo'].'</td>
 
@@ -159,9 +166,10 @@ else
     }
   
 
-    if ($_FILES["foto_file"]["error"] > 0)
+    if ($_FILES["foto_file"]["error"] > 0 && $_FILES["fotocareta_file"]["error"] > 0)
     {
-        echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
+        echo "Return Code: " . $_FILES["foto_file"]["error"] . "<br />";
+        echo "Return Code: " . $_FILES["fotocareta_file"]["error"] . "<br />";
     }
     else
     {
@@ -170,10 +178,16 @@ else
         echo "Size: " . ($_FILES["foto_file"]["size"] / 1024) . " Kb<br />";
         echo "Temp file: " . $_FILES["foto_file"]["tmp_name"] . "<br />";
 
-        if (file_exists("../../images/pessoas/" . $_FILES["foto_file"]["name"]))
+        echo "Upload: " . $_FILES["fotocareta_file"]["name"] . "<br />";
+        echo "Type: " . $_FILES["fotocareta_file"]["type"] . "<br />";
+        echo "Size: " . ($_FILES["fotocareta_file"]["size"] / 1024) . " Kb<br />";
+        echo "Temp file: " . $_FILES["fotocareta_file"]["tmp_name"] . "<br />";
+
+        if (file_exists("../../images/pessoas/" . $_FILES["foto_file"]["name"]) && file_exists("../../images/pessoas/" . $_FILES["fotocareta_file"]["name"]))
         {
             echo "Ja existe um arquivo com o mesmo nome que voce está tentando salvar.<br />
                   Por favor, salve com outro nome";
+            exit;
         }
         else
         {
@@ -181,20 +195,26 @@ else
             move_uploaded_file($_FILES["foto_file"]["tmp_name"],"../../".$caminho);
             chmod("../../".$caminho, 0777);
             echo "Stored in: " . "../../images/pessoas/" . $_FILES["foto_file"]["name"];
+
+            $caminho_careta = "images/pessoas/" . $_FILES["fotocareta_file"]["name"];
+            move_uploaded_file($_FILES["fotocareta_file"]["tmp_name"],"../../".$caminho_careta);
+            chmod("../../".$caminho_careta, 0777);
+            echo "Stored in: " . "../../images/pessoas/" . $_FILES["fotocareta_file"]["name"];
         }
     }
 
-    $resultado_pessoas_update_query = "INSERT INTO pessoas (nome, cargo, depoimento, tipo, foto, mostrar) VALUES(";
+    $resultado_pessoas_update_query = "INSERT INTO pessoas (nome, cargo, depoimento, tipo, foto, foto_careta, mostrar) VALUES(";
     foreach($_POST as $key => $value)
     {
         if($key != 'submit' && $key != 'mostrar')
         {
-            $resultado_pessoas_update_query .= "'".htmlspecialchars($value)."', ";
+            $resultado_pessoas_update_query .= "'".$value."', ";
         }
     }
 
     $resultado_pessoas_update_query .= "'".$caminho."',";
-    $resultado_pessoas_update_query .= "'".$mostrar."'";
+    $resultado_pessoas_update_query .= "'".$caminho_careta."',";
+    $resultado_pessoas_update_query .= "".$mostrar."";
     $resultado_pessoas_update_query .= ")";
     echo $resultado_pessoas_update_query;
     mysql_query($resultado_pessoas_update_query);

@@ -58,6 +58,15 @@ else if(!isset($_POST['submit'])){
             <input type="file" name="foto_file" id="foto_file" />
         </td>
         </tr>
+
+        <tr>
+            <td><label for="fotocareta_file">Foto Careta: </label></td>
+            <td>
+                <img width="150px" height="40px" src="<?php echo "../../".$pessoas['foto_careta'] ?>" />
+                <input type="hidden" name="imagemcareta_antiga" value="<?php echo $pessoas['foto_careta'] ?>" />
+                <input type="file" name="fotocareta_file" id="fotocareta_file" />
+            </td>
+        </tr>
         <!---->
         <tr>
         <td><label for="cargo">Cargo: </label></td>
@@ -104,6 +113,7 @@ else if(!isset($_POST['submit'])){
     }
     else
     {
+
         //pegando o id do pessoas para utilizar na cláusula
         $id = $_POST['id'];
 
@@ -116,42 +126,64 @@ else if(!isset($_POST['submit'])){
             $mostrar = 1;
         }
 
-        if ($_FILES["foto_file"]["error"] > 0)
+        if ($_FILES["foto_file"]["error"] > 0 && $_FILES["fotocareta_file"]["error"] > 0)
         {
             echo "Return Code: " . $_FILES["foto_file"]["error"] . "<br />";
             echo "arquivo não foi atualizado seguir fluxo 2 sem atualizar o arquivo";
+
+            echo "Return Code: " . $_FILES["fotocareta_file"]["error"] . "<br />";
+            echo "arquivo não foi atualizado seguir fluxo 2 sem atualizar o arquivo";
             //atualizar nome do arquivo com o nome antigo
             $imagem_fundo = $_POST['imagem_antiga'];
+            $imagemcareta_fundo = $_POST['imagemcareta_antiga'];
             //passando a variável $logo_file para $caminho para ser gravada no banco de dados
             $caminho = $imagem_fundo;
+            $caminhocareta = $imagemcareta_fundo;
 
         }
         else
         {
-
-            //excluir imagem antiga que estava no servidor e atualizar caminho
-            $imagem_antiga = $_POST['imagem_antiga'];
-
-
-            echo $imagem_antiga;
-            @unlink("../../".$imagem_antiga);
 
             echo "Upload: " . $_FILES["foto_file"]["name"] . "<br />";
             echo "Type: " . $_FILES["foto_file"]["type"] . "<br />";
             echo "Size: " . ($_FILES["foto_file"]["size"] / 1024) . " Kb<br />";
             echo "Temp file: " . $_FILES["foto_file"]["tmp_name"] . "<br />";
 
-            if (file_exists("../../images/pessoas/" . $_FILES["foto_file"]["name"]))
+            echo "Upload: " . $_FILES["fotocareta_file"]["name"] . "<br />";
+            echo "Type: " . $_FILES["fotocareta_file"]["type"] . "<br />";
+            echo "Size: " . ($_FILES["fotocareta_file"]["size"] / 1024) . " Kb<br />";
+            echo "Temp file: " . $_FILES["fotocareta_file"]["tmp_name"] . "<br />";
+
+            if (file_exists("../../images/pessoas/" . $_FILES["foto_file"]["name"]) && file_exists("../../images/pessoas/" . $_FILES["fotocareta_file"]["name"]))
             {
                 echo "Ja existe um arquivo com o mesmo nome que voce está tentando salvar.<br />
                   Por favor, salve com outro nome";
+                exit;
             }
             else
             {
-                $caminho = "images/pessoas/" . $_FILES["foto_file"]["name"];
-                move_uploaded_file($_FILES["foto_file"]["tmp_name"],"../../".$caminho);
-                chmod("../../".$caminho, 0777);
-                echo "Stored in: " . "../../images/pessoas/" . $_FILES["foto_file"]["name"];
+                //excluir imagem antiga que estava no servidor e atualizar caminho
+                if($_FILES["foto_file"]["name"] != '')
+                {
+                    echo "arquivo foto foi setado";
+                    $imagem_antiga = $_POST['imagem_antiga'];
+                    @unlink("../../".$imagem_antiga);
+
+                    $caminho = "images/pessoas/" . $_FILES["foto_file"]["name"];
+                    move_uploaded_file($_FILES["foto_file"]["tmp_name"],"../../".$caminho);
+                    chmod("../../".$caminho, 0777);
+                    echo "Stored in: " . "../../images/pessoas/" . $_FILES["foto_file"]["name"];
+                }
+                if($_FILES["fotocareta_file"]["name"] != '')
+                {
+                    echo "arquivo foto careta foi setado";
+                    $imagemcareta_antiga = $_POST['imagemcareta_antiga'];
+                    @unlink("../../".$imagemcareta_antiga);
+                    $caminhocareta = "images/pessoas/" . $_FILES["fotocareta_file"]["name"];
+                    move_uploaded_file($_FILES["fotocareta_file"]["tmp_name"],"../../".$caminhocareta);
+                    chmod("../../".$caminhocareta, 0777);
+                    echo "Stored in: " . "../../images/pessoas/" . $_FILES["fotocareta_file"]["name"];
+                }
             }
         }
 
@@ -159,14 +191,23 @@ else if(!isset($_POST['submit'])){
         foreach($_POST as $key => $value)
         {
             //adiconar chaves que não devem ser incluidas na query
-            if($key != 'submit' && $key != 'mostrar' && $key != 'imagem_antiga' && $key != 'id')
+            if($key != 'submit' && $key != 'mostrar' && $key != 'imagem_antiga' && $key != 'id' && $key != 'imagemcareta_antiga')
             {
                 $resultado_pessoas_update_query .= $key." = '".$value."', ";
             }
         }
         //
-        $resultado_pessoas_update_query .= "mostrar = '".$mostrar."',";
-        $resultado_pessoas_update_query .= "foto = '".$caminho."'";
+        if($_FILES["foto_file"]["name"] != '')
+        {
+            $resultado_pessoas_update_query .= "foto = '".$caminho."',";
+        }
+        if($_FILES["fotocareta_file"]["name"] != '')
+        {
+            $resultado_pessoas_update_query .= "foto_careta = '".$caminhocareta."',";
+        }
+
+        $resultado_pessoas_update_query .= "mostrar = ".$mostrar."";
+
         $resultado_pessoas_update_query .= " WHERE id = ".$id;
 
 

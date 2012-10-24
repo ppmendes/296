@@ -156,10 +156,16 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
             });
         });
 
-        function atualizaNomeCargoMembro(nome, cargo)
+        function onMouseOverImagemPessoas(id,nome, cargo, imagem)
         {
+            //alert(imagem);
+            //atualizaNomeCargoMembro
             $('#nomeMembro').html(nome);
             $('#cargoMembro').html(cargo);
+
+            //mudar css
+            $('#'+id).css('background-image','url('+imagem+')');
+
         }
     </script>
 </head>
@@ -344,7 +350,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
                     {
                          $pessoas_membros = $array_pessoas_membros[$i];
                     ?>
-                        <figure onmouseover="atualizaNomeCargoMembro('<?php echo $pessoas_membros['nome']; ?>','<?php echo $pessoas_membros['cargo']; ?>');" onmouseout="atualizaNomeCargoMembro('','');" class="figure_pessoas" style="background-image:url(<?php echo $pessoas_membros['foto'] ?>); " ></figure>
+                        <figure id="membro_<?php echo $pessoas_membros['id']; ?>" onmouseover="onMouseOverImagemPessoas('membro_<?php echo $pessoas_membros['id']; ?>','<?php echo $pessoas_membros['nome']; ?>','<?php echo $pessoas_membros['cargo']; ?>','<?php echo $pessoas_membros['foto_careta'] ?>');" onmouseout="onMouseOverImagemPessoas('membro_<?php echo $pessoas_membros['id']; ?>','','','<?php echo $pessoas_membros['foto'] ?>');" class="figure_pessoas" style="background-image:url(<?php echo $pessoas_membros['foto'] ?>); " ></figure>
                     <?php
                     }
                     ?>
@@ -356,7 +362,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
                     {
                         $pessoas_membros = $array_pessoas_membros[$i];
                     ?>
-                        <figure onmouseover="atualizaNomeCargoMembro('<?php echo $pessoas_membros['nome']; ?>','<?php echo $pessoas_membros['cargo']; ?>');" onmouseout="atualizaNomeCargoMembro('','');" class="figure_pessoas" style="background-image:url(<?php echo $pessoas_membros['foto'] ?>); " ></figure>
+                        <figure id="membro_<?php echo $pessoas_membros['id']; ?>" onmouseover="onMouseOverImagemPessoas('membro_<?php echo $pessoas_membros['id']; ?>','<?php echo $pessoas_membros['nome']; ?>','<?php echo $pessoas_membros['cargo']; ?>','<?php echo $pessoas_membros['foto_careta'] ?>');" onmouseout="onMouseOverImagemPessoas('membro_<?php echo $pessoas_membros['id']; ?>','','','<?php echo $pessoas_membros['foto'] ?>');" class="figure_pessoas" style="background-image:url(<?php echo $pessoas_membros['foto'] ?>); " ></figure>
                     <?php
                     }
                     ?>
