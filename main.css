@@ -842,6 +842,14 @@ body {
 	background-image:url(images/icon_twitter.png);
 }
 
+#social_vimeo {
+    background-image:url(images/icon_vimeo.png);
+}
+
+#social_flicker {
+    background-image:url(images/icon_flicker.png);
+}
+
 .social {
 	float:right;
 	height:25px;

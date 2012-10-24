@@ -548,7 +548,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
         <a href="#" target="" ><figure id="footer_image_logo" ></figure></a>
 
         <aside style="width:auto; height:auto; float:right; margin-top:50px; margin-right:2%; " >
-            <address style="font-family:unb_officeregular; color:#FFFFFF; text-align:right; font-style:normal; font-size:10pt; line-height:1.3em; " >
+            <address style="font-family:UnBPro-RegularRegular; color:#FFFFFF; text-align:right; font-style:normal; font-size:10pt; line-height:1.3em; " >
                 Universidade de Brasília, Campus Darcy Ribeiro, ICC<br>
                 Norte, Faculdade de Comunicação, Bloco A, Sala<br>
                 AT-626, Porta Verde. CEP: 79910-900<br>
@@ -557,9 +557,14 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
                 <div style="color:#70B048; margin-top:8px; margin-bottom:8px; " >Nosso expediente é de segunda à sexta, das 14h às 18h.<br></div>
             </address>
             <section id="section_social" >
-                <a href="http://doisnovemeia.com.br/blog/" target="_blank" ><div class="social" id="social_wordpress" ></div></a>
-                <a href="http://www.facebook.com/Doisnovemeia" target="_blank" ><div class="social" id="social_facebook" ></div></a>
+                <a href="http://www.flickr.com/photos/doisnovemeia/" target="_blank" ><div class="social" id="social_flicker" ></div></a>
+                <a href="http://vimeo.com/doisnovemeia" target="_blank" ><div class="social" id="social_vimeo" ></div></a>
                 <a href="http://twitter.com/Doisnovemeia" target="_blank" ><div class="social" id="social_twitter" ></div></a>
+                <a href="http://www.facebook.com/Doisnovemeia" target="_blank" ><div class="social" id="social_facebook" ></div></a>
+                <a href="http://doisnovemeia.com.br/blog/" target="_blank" ><div class="social" id="social_wordpress" ></div></a>
+
+
+
             </section>
         </aside>
 
