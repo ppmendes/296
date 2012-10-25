@@ -68,7 +68,8 @@
  * Garantindo que todas páginas de edição de conteúdo sejam acessadas somente por usuários logados
  */
 
-$base_url = "C:/wamp/www/296";
-include($base_url."/login/seguranca.php"); // Inclui o arquivo com o sistema de segurança
+//locaweb - 296
+$base_url = "E:/home/doisnovemeia/web/quase";
+include($base_url."/login/seguranca.php");
 protegePagina(); // Chama a função que protege a página
 ?>

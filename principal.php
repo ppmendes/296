@@ -4,6 +4,8 @@
 //$base_url = "/var/www/296";
 //windows
 $base_url = "C:/wamp/www/296";
+//locaweb - 296
+//$base_url = "E:/home/doisnovemeia/web/quase";
 include($base_url."/login/seguranca.php");
 
 mysql_query("SET NAMES utf8");
@@ -162,10 +164,18 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
             //atualizaNomeCargoMembro
             $('#nomeMembro').html(nome);
             $('#cargoMembro').html(cargo);
-
             //mudar css
             $('#'+id).css('background-image','url('+imagem+')');
+        }
 
+        function exMembroDireita(id){
+            $("#exmembro_"+id).addClass('invisivel');
+            $("#exmembro_"+(id+1)).removeClass('invisivel');
+        }
+
+        function exMembroEsquerda(id){
+            $("#exmembro_"+id).addClass('invisivel');
+            $("#exmembro_"+(id-1)).removeClass('invisivel');
         }
     </script>
 </head>
@@ -386,26 +396,37 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
                     </footer>
                 </section>
                 <section style="height: 130px; float: left; border-left: solid 1px #FFFFFF; margin-top: 190px; margin-left: 10px;">&nbsp;</section>
-                <section style="min-height:480px; width: 500px; float: left; overflow: hidden; margin-top: 170px;">
+                <?php
+                for($i = 0 ; $i < sizeof($array_pessoas_exmembros); $i++)
+                {
+                    $pessoas_exmembros = $array_pessoas_exmembros[$i];
+
+                ?>
+                <section id="exmembro_<?php echo $i; ?>" <?php if($i > 0){ echo 'class="invisivel"'; } ?> style="min-height:480px; width: 500px; float: left; overflow: hidden; margin-top: 170px;">
                     <article class="header_section_02" style="font-family:'PopulaireMedium';white-space: normal; color:#FFFFFF; font-weight:normal; margin-top:10px; font-size: 32px; line-height: 40px; " >
                         <image src="images/abre_aspas.png">
-                            A DOIS É UM LUGAR ONDE A
-                            GENTE APRENDE MUITO E FAZ
-                            GRANDES AMIGOS AO MESMO TEMPO.
-                            PARECE MESA DE BAR, SÓ QUE SEM O
-                            BAR... E ÀS VEZES SEM A MESA.
-                            <image src="images/fecha_aspas.png">
+                            <?php echo $pessoas_exmembros['depoimento']; ?>
+                        <image src="images/fecha_aspas.png">
                     </article>
-
                     <footer style="text-align: right; color:#4DB848;">
-                        Thiagoogo Hfgoog, ex-alguma coisa vai aqui.
+                       <?php
+                            echo $pessoas_exmembros['nome'].", ex-".$pessoas_exmembros['cargo'];
+                        ?>
                     </footer>
-
                     <nav style="text-align: center; margin-top:20px;">
-                        <a href="#" style="padding-right: 10px;"><img src="images/seta_esquerda.png"></a>
-                        <a href="#" style="padding-left: 10px;"><img src="images/seta_direita.png"></a>
+                        <a href="<?php if($i != 0){ echo 'javascript:exMembroEsquerda('.$i.')';}else{echo 'javascript:void(0)';} ?>" style="text-decoration: none;padding-right: 10px;">
+                            <img src="images/seta_esquerda.png" >
+                        </a>
+                        <a href="<?php if($i != (sizeof($array_pessoas_exmembros)-1)){ echo 'javascript:exMembroDireita('.$i.')';}else{echo 'javascript:void(0)';} ?>" style="text-decoration: none;padding-left: 10px;">
+                            <img src="images/seta_direita.png" >
+                        </a>
                     </nav>
                 </section>
+                <?php
+                }
+                ?>
+
+
             </section>
         </section>
     </section>

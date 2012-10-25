@@ -20,16 +20,12 @@ if(!isset($_POST['submit'])){
 <script type="text/javascript">
     $(document).ready(function() {
         $("a.iframe").fancybox({
-            'width'				: 500,
+            'width'				: 840,
+            'height'            : 600,
             'autoScale'			: false,
             'transitionIn'			: 'none',
             'transitionOut'			: 'none',
-            'type'				: 'iframe',
-            'onComplete' : function() {
-                $('#fancybox-frame').load(function() { // wait for frame to load and then gets it's height
-                    $('#fancybox-content').height($(this).contents().find('body').height()+30);
-                });
-            }
+            'type'				: 'iframe'
         });
     });
 </script>
@@ -62,7 +58,7 @@ if(!isset($_POST['submit'])){
 
         <tr>
             <td><label for="depoimento">Depoimento: </label></td>
-            <td><textarea name="depoimento" id="depoimento"></textarea></td>
+            <td><textarea name="depoimento" id="depoimento" class="tinymce"></textarea></td>
         </tr>
 
         <tr>

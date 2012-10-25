@@ -2,7 +2,9 @@
 //linux
 //$base_url = "/var/www/296";
 //windows
-$base_url = "C:/wamp/www/296";
+//$base_url = "C:/wamp/www/296";
+//locaweb - 296
+$base_url = "E:/home/doisnovemeia/web/quase";
 include($base_url."/login/seguranca.php");
 
 mysql_query("SET NAMES utf8");
@@ -61,7 +63,15 @@ while ($verbo_introducao = mysql_fetch_array($resultado)){
             });
             $('#botao_ok').click(function(){
                 verbo_selecionado = $('.select').html();
-                window.location.href = 'verbos.php?verbo='+verbo_selecionado;
+
+                if(verbo_selecionado == '')
+                {
+                    alert('Escolha um verbo');
+                }
+                else
+                {
+                    window.location.href = 'verbos.php?verbo='+verbo_selecionado;
+                }
             });
         });
 

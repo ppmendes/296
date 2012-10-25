@@ -197,7 +197,7 @@ body {
 	font-size:11pt;
 	white-space:nowrap;
 	margin:0;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
 }
 
 .section_global {
@@ -456,7 +456,8 @@ body {
 	margin-left:auto;
 	margin-right:auto;
 	display:block;
-	width:100%;
+	/*width:100%;*/
+    width: 87.35%;
 	z-index:1000;
 }
 
@@ -918,8 +919,17 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
 .menu_ativo{
     background-image: url('images/menu_selecionado.png');
+}
+
+.invisivel{
+ display: none;
+}
+
+.visivel{
+    display: block;
 }
 
 /* almanaque */

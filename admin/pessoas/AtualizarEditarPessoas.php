@@ -55,6 +55,7 @@ else if(!isset($_POST['submit'])){
         <td>
             <img width="150px" height="40px" src="<?php echo "../../".$pessoas['foto'] ?>" />
             <input type="hidden" name="imagem_antiga" value="<?php echo $pessoas['foto'] ?>" />
+            <br />
             <input type="file" name="foto_file" id="foto_file" />
         </td>
         </tr>
@@ -64,6 +65,7 @@ else if(!isset($_POST['submit'])){
             <td>
                 <img width="150px" height="40px" src="<?php echo "../../".$pessoas['foto_careta'] ?>" />
                 <input type="hidden" name="imagemcareta_antiga" value="<?php echo $pessoas['foto_careta'] ?>" />
+                <br />
                 <input type="file" name="fotocareta_file" id="fotocareta_file" />
             </td>
         </tr>
@@ -76,7 +78,7 @@ else if(!isset($_POST['submit'])){
         <tr>
         <td><label for="tipo">Depoimento: </label></td>
         <td>
-            <textarea name="depoimento" id="depoimento"><?php echo $pessoas['depoimento']; ?></textarea>
+            <textarea name="depoimento" class="tinymce" id="depoimento"><?php echo $pessoas['depoimento']; ?></textarea>
         </td>
         </tr>
 

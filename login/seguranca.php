@@ -28,16 +28,23 @@ $_SG['caseSensitive'] = false;     // Usar case-sensitive? Onde 'thiago' é dife
 $_SG['validaSempre'] = true;       // Deseja validar o usuário e a senha a cada carregamento de página?
 // Evita que, ao mudar os dados do usuário no banco de dado o mesmo contiue logado.
 
-/*$_SG['servidor'] = 'mysql05.redessociaisonline.com';    // Servidor MySQL
-$_SG['usuario'] = 'redessociaison11';          // Usuário MySQL
-$_SG['senha'] = 'gim@is';                // Senha MySQL*/
+//locaweb - 296
+/*$_SG['servidor'] = 'mysql18.doisnovemeia.com.br';    // Servidor MySQL
+$_SG['usuario'] = 'doisnovemeia17';          // Usuário MySQL
+$_SG['senha'] = 'web29meia';                // Senha MySQL
+$_SG['banco'] = 'doisnovemeia17';
+
+*/
 $_SG['servidor'] = 'localhost';    // Servidor MySQL
 $_SG['usuario'] = 'root';          // Usuário MySQL
 $_SG['senha'] = '123456';                // Senha MySQL
+$_SG['banco'] = 'redessociaison11';
 
-$_SG['banco'] = 'redessociaison11';            // Banco de dados MySQL
-
-$base_url_http = "http://localhost/296/";
+// Banco de dados MySQL
+//localhost
+//$base_url_http = "http://localhost/296/";
+//locaweb 296
+$base_url_http = "http://www.doisnovemeia.com.br/quase/";
 $_SG['paginaLogin'] = $base_url_http.'login/login.php'; // Página de login
 
 $_SG['tabela'] = 'usuarios';       // Nome da tabela onde os usuários são salvos
