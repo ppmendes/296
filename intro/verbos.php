@@ -60,7 +60,6 @@ $verbo_dados = mysql_fetch_array($resultado);
             font-weight: normal;
             line-height: 2em;
             text-rendering: geometricprecision;
-            text-shadow: 0 0 2px rgba(0, 0, 0, 0.498);
         }
         .botao_mostra{
             position: absolute;

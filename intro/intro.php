@@ -2,9 +2,9 @@
 //linux
 //$base_url = "/var/www/296";
 //windows
-//$base_url = "C:/wamp/www/296";
+$base_url = "C:/wamp/www/296";
 //locaweb - 296
-$base_url = "E:/home/doisnovemeia/web/quase";
+//$base_url = "E:/home/doisnovemeia/web/quase";
 include($base_url."/login/seguranca.php");
 
 mysql_query("SET NAMES utf8");
@@ -32,7 +32,7 @@ while ($verbo_introducao = mysql_fetch_array($resultado)){
 
 		<!--<script type="text/javascript" src="http://sawpf.com/1.0.js" ></script>-->
 
-		<link href="intro.css" rel="stylesheet" media="screen" type="text/css" >
+		<!--<link href="intro.css" rel="stylesheet" media="screen" type="text/css" >-->
 		<link href="../fonts/stylesheet.css" rel="stylesheet" media="screen" type="text/css" >
 
 		
@@ -83,7 +83,7 @@ while ($verbo_introducao = mysql_fetch_array($resultado)){
             padding: 0;
             width: 350px;
             text-align: center;
-            border:solid 1px #000;
+            border:solid 0px #000;
             border-radius: 5px;
             background-color: rgba(100, 100, 100, 0.2);
         }
@@ -150,14 +150,22 @@ while ($verbo_introducao = mysql_fetch_array($resultado)){
         #botao_ok:hover{
             cursor: pointer;
         }
+        #pularnav:hover{
+            color: green;
+            text-decoration-color: green;
+        }
+
     </style>
 
 	</head>
 	<body style="background-image:url(../images/bg/pattern1.jpg); height:100%; overflow:hidden; margin:0; " >
-    <figure style="position:absolute; bottom: 0; right: 0; width:160px; height:50px; margin-right:2%; background-color:transparent; margin-top:0; background-image:url(../images/296_2010.png); background-position:50% 0%; background-position-x:50%; background-position-y:0%; background-size:auto 100%; background-repeat-x:no-repeat; background-repeat-y:no-repeat; background-repeat:no-repeat; " ></figure>
+    <figure style="position:absolute; bottom: 0; right: 0; width:160px; height:50px; margin-right:2%; background-color:transparent; margin-top:0; background-image:url(../images/logo296_intro.png); background-position:50% 0%; background-position-x:50%; background-position-y:0%; background-size:auto 100%; background-repeat-x:no-repeat; background-repeat-y:no-repeat; background-repeat:no-repeat; " ></figure>
 		<section id="main" style="height:100%; " >
-			<hgroup style="background-color:transparent; height:50px; font-family:'UnBPro-RegularRegular', Helvetica; text-shadow:rgb(255, 255, 255) 1px 2px 3px; font-size:1.2em; " ><a href="../principal.php" target="" name="" ><nav style="position:relative; float:right; width:auto; margin-right:2%; background-color:transparent; text-align:center; text-transform:uppercase; font-family:inherit; padding-top:1%; color: #000; font-size: 0.5em; " >Pular</nav></a></hgroup>
-			<section id="content" style="width:100%; min-width:800px; height:600px; min-height:500px; " ><section style="position:relative; float:none; margin-left:auto; margin-right:auto; display:block; min-width:600px; height:600px; font-family:'UnBPro-RegularRegular', Helvetica; line-height:2em; text-shadow:rgba(0, 0, 0, 0.496094) 0px 0px 2px; text-rendering:geometricprecision; font-weight:normal; font-style:normal; color:#4DB848; width:900px; " ><section style="position:relative; background-color:transparent; float:left; display:block; width:160px; height:100%; " >
+			<hgroup style="background-color:transparent; height:50px; font-family:'UnBPro-RegularRegular', Helvetica; font-size:1.2em; " >
+            <a href="../principal.php" target="" name="" >
+                <nav style="position: relative; float: right; width: auto; margin-right: 2%; background-color: transparent; text-align: center; text-transform: uppercase; font-family: inherit; padding-top: 1%; color: black; font-size: 0.6em;" id="pularnav" onmouseout="$('#pularnav').css('color','#000');" onmouseover="$('#pularnav').css('color','#51B848');">Pular</nav>
+            </a></hgroup>
+			<section id="content" style="width:100%; min-width:800px; height:600px; min-height:500px; " ><section style="position:relative; float:none; margin-left:auto; margin-right:auto; display:block; min-width:600px; height:600px; font-family:'UnBPro-RegularRegular', Helvetica; line-height:2em; text-rendering:geometricprecision; font-weight:normal; font-style:normal; color:#4DB848; width:900px; " ><section style="position:relative; background-color:transparent; float:left; display:block; width:160px; height:100%; " >
                 <article style="color: #000; height:44px; position:absolute; width:100%; top:40%; background-color:transparent; text-align:right; font-size:3em; " >Nós</article>
             </section>
             <section style="position:relative; background-color:transparent; float:left; display:block; width:380px; height:100%; padding-right:5px; padding-left:5px; " >

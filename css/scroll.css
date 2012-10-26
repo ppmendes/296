@@ -2,7 +2,65 @@
 
 /* Invisible left hotspot */
 
+/* exclusivamente para section portfolio */
 div.scrollingHotSpotLeft {
+    min-width:75px;
+    width:10%;
+    height:100%;
+    background-image:url(../images/big_transparent.gif);
+    background-repeat-x:repeat;
+    background-repeat-y:repeat;
+    background-repeat:repeat;
+    background-position:50% 50%;
+    background-position-x:50%;
+    background-position-y:50%;
+    position:absolute;
+    z-index:200;
+    left:0;
+}
+
+/* Visible left hotspot */
+
+div.scrollingHotSpotLeftVisible {
+    background-image:url(../images/arrow_left.png);
+    background-color:transparent;
+    background-repeat-x:no-repeat;
+    background-repeat-y:no-repeat;
+    background-repeat:no-repeat;
+    zoom:1;
+}
+
+/* Invisible right hotspot */
+
+div.scrollingHotSpotRight {
+    min-width:75px;
+    width:10%;
+    height:100%;
+    background-image:url(../images/big_transparent.gif);
+    background-repeat-x:repeat;
+    background-repeat-y:repeat;
+    background-repeat:repeat;
+    background-position:50% 50%;
+    background-position-x:50%;
+    background-position-y:50%;
+    position:absolute;
+    z-index:200;
+    right:0px;
+}
+
+/* Visible right hotspot */
+
+div.scrollingHotSpotRightVisible {
+    background-image:url(../images/arrow_right.png);
+    background-color:transparent;
+    background-repeat-x:no-repeat;
+    background-repeat-y:no-repeat;
+    background-repeat:no-repeat;
+    zoom:1;
+}
+
+/* para as imagens clicáveis */
+div.scrollingHotSpotLeft1 {
 	min-width:75px;
 	width:10%;
 	height:100%;
@@ -16,12 +74,11 @@ div.scrollingHotSpotLeft {
 	position:absolute;
 	z-index:200;
 	left:0;
-	cursor:url(../images/cursors/cursor_arrow_left.png), url(../images/cursors/cursor_arrow_left.cur), w-resize;
 }
 
 /* Visible left hotspot */
 
-div.scrollingHotSpotLeftVisible {
+div.scrollingHotSpotLeftVisible1 {
 	background-image:url(../images/arrow_left.png);
 	background-color:transparent;
 	background-repeat-x:no-repeat;
@@ -32,7 +89,7 @@ div.scrollingHotSpotLeftVisible {
 
 /* Invisible right hotspot */
 
-div.scrollingHotSpotRight {
+div.scrollingHotSpotRight1 {
 	min-width:75px;
 	width:10%;
 	height:100%;
@@ -46,12 +103,11 @@ div.scrollingHotSpotRight {
 	position:absolute;
 	z-index:200;
 	right:0px;
-	cursor:url(../images/cursors/cursor_arrow_right.png), url(../images/cursors/cursor_arrow_right.cur), e-resize;
 }
 
 /* Visible right hotspot */
 
-div.scrollingHotSpotRightVisible {
+div.scrollingHotSpotRightVisible1 {
 	background-image:url(../images/arrow_right.png);
 	background-color:transparent;
 	background-repeat-x:no-repeat;
@@ -73,8 +129,14 @@ div.scrollWrapper {
 
 div.scrollableArea {
 	position:relative;
-	width:auto;
+	width:310%;
 	height:100%;
+}
+
+div.scrollableArea4 {
+    position:relative;
+    width:110%;
+    height:100%;
 }
 
 #scroll, #scroll_1 #scroll_2, #scroll_3, #scroll_4, #scroll_5, #scroll_6, #scroll_7{

@@ -44,7 +44,9 @@ $_SG['banco'] = 'redessociaison11';
 //localhost
 //$base_url_http = "http://localhost/296/";
 //locaweb 296
-$base_url_http = "http://www.doisnovemeia.com.br/quase/";
+//$base_url_http = "http://www.doisnovemeia.com.br/quase/";
+//localhost
+$base_url_http = "http://localhost/296/";
 $_SG['paginaLogin'] = $base_url_http.'login/login.php'; // Página de login
 
 $_SG['tabela'] = 'usuarios';       // Nome da tabela onde os usuários são salvos

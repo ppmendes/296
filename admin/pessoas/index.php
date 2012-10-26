@@ -58,7 +58,7 @@ if(!isset($_POST['submit'])){
 
         <tr>
             <td><label for="depoimento">Depoimento: </label></td>
-            <td><textarea name="depoimento" id="depoimento" class="tinymce"></textarea></td>
+            <td><textarea name="depoimento" id="depoimento"></textarea></td>
         </tr>
 
         <tr>

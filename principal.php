@@ -115,16 +115,26 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
                 $('.menu > li > .menu_ativo').removeClass('menu_ativo');
                 $('.menu > li > a[href="'+this.hash+'"]').addClass('menu_ativo');
             });
-            // None of the options are set
-            $("section#section_01, section#section_02, section#section_03, section#section_04").smoothDivScroll({});
 
             $('#section_global_02').anystretch("images/bg/bg_section_02.jpg");
+            $('#section_global_03').anystretch("images/bg/pattern2.jpg");
             $('#section_global_04').anystretch("images/bg/bg_section_04.jpg");
             $('#section_global_05').anystretch("images/bg/bg_section_05.jpg");
             $('#section_global_06').anystretch("images/bg/bg_section_06.jpg");
 
+            $("section#section_01, section#section_02, section#section_04").smoothDivScroll({
+                hotSpotScrolling: false,
+                scrollableAreaClass: "scrollableArea"
+            });
+
+            $("section#section_03").smoothDivScroll({
+                scrollableAreaClass: "scrollableArea4"
+            });
+
             //section 01
             //subitem do menu: a dois
+            //evento onclick das setinhas
+
             $('#a_dois_menu').click(function(){
                 $("section#section_01").smoothDivScroll("scrollToElement", "id", "a_dois_section");
             });
@@ -156,6 +166,43 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
             $('#parceiros_menu').click(function(){
                 $("section#section_04").smoothDivScroll("scrollToElement", "id", "parceiros_section");
             });
+
+            //evento onclick das setinhas
+
+            $('.a_dois_menu').click(function(){
+                $("section#section_01").smoothDivScroll("scrollToElement", "id", "a_dois_section");
+            });
+            //subitem do menu: histórico
+            $('.historico_menu').click(function(){
+                $("section#section_01").smoothDivScroll("scrollToElement", "id", "historico_section");
+            });
+            //subitem do menu: histórico
+            $('.missao_valores_menu').click(function(){
+                $("section#section_01").smoothDivScroll("scrollToElement", "id", "missao_valores_section");
+            });
+
+            //section 02
+            //subitem do menu: membros
+            $('.membros_menu').click(function(){
+                $("section#section_02").smoothDivScroll("scrollToElement", "id", "membros_section");
+            });
+            //subitem do menu: ex-membros
+            $('.exmembros_menu').click(function(){
+                $("section#section_02").smoothDivScroll("scrollToElement", "id", "exmembros_section");
+            });
+
+            //section 03
+            //subitem do menu: clientes
+            $('.clientes_menu').click(function(){
+                $("section#section_04").smoothDivScroll("scrollToElement", "id", "clientes_section");
+            });
+            //subitem do menu: parceiros
+            $('.parceiros_menu').click(function(){
+                $("section#section_04").smoothDivScroll("scrollToElement", "id", "parceiros_section");
+            });
+
+            /*$('#section_01').prepend('<div class="scrollingHotSpotLeft1 scrollingHotSpotLeftVisible1" style="display: block;"></div>'+
+                                       '<div class="scrollingHotSpotRight1 scrollingHotSpotRightVisible1"></div>');*/
         });
 
         function onMouseOverImagemPessoas(id,nome, cargo, imagem)
@@ -189,10 +236,10 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
     <nav class="nav_global" >
         <div id="nav_center" >
             <ul class="menu" >
-                <li>
+                <li style="list-style-type:none;">
                     <a href="#agencia" class="anchorLink" >Agência</a>
                     <ul id="submenu1" >
-                        <li class="li2" ><a  id="a_dois_menu" href="#agencia" class="anchorLink" >A Dois</a></li>
+                        <li class="li2" ><a  href="#agencia" class="anchorLink a_dois_menu" >A Dois</a></li>
                         <li><a id="historico_menu" href="#agencia" class="anchorLink" >Histórico</a></li>
                         <li><a id="missao_valores_menu" href="#agencia" class="anchorLink" >Missão e Valores</a></li>
 
@@ -219,8 +266,12 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
                 <li><a href="#almanaque" class="anchorLink" >Almanaque</a></li>
                 <li><a href="#processo_seletivo" class="anchorLink" >Processo Seletivo</a></li>
                 <li><a href="#contato" class="anchorLink" >Contato</a></li>
+                <li style="float:right; ">
+                    <a style="color:#70B048; ">&nbsp;</a>
+                </li>
                 <li style="float:right; " >
-                    <a href="intro/intro.php" style="color:#70B048; " >Intro</a></li>
+                    <a href="intro/intro.php" style="color:#70B048; " >Intro</a>
+                </li>
 
             </ul>
         </div>
@@ -236,8 +287,12 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
             <a name="a_dois" ></a>
             <section id="a_dois_section" class="logo_slice_01" style="background-image:url(images/logo.gif); margin-top:0; " ></section>
 
+
             <a name="a_dois" id="a_dois" ></a>
-            <section style="height:600px; margin-left:150px; float:left; position:relative; margin-top:50px; margin-right:150px; " >
+            <section style="height: 700px; float: left; position: relative; margin-top: 50px; margin-right: 7%; margin-left: 4%;" >
+                <!-- seta -->
+                <a href="javascript:void(0)" class="historico_menu"><div style="margin-right: -220px; margin-top: -60px;" class="scrollingHotSpotRight1 scrollingHotSpotRightVisible1"></div></a>
+
                 <header class="header_title" id="header_section_01" >Quem somos</header>
                 <div class="line" id="line_section_01" ></div>
                 <article class="article_global" id="article_slice_01" >
@@ -266,7 +321,11 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
             </section>
 
             <a name="historico" id="historico" ></a>
-            <section id="historico_section" style="width:auto; height:700px; float:left; position:relative; margin-top:50px; margin-left:150px; margin-right:150px; padding-left:50px; padding-right:50px; " >
+            <section id="historico_section" style="width:auto; height:700px; float:left; position:relative; margin-top:50px; margin-right:10%;margin-left:9.8%;" >
+
+                <a href="javascript:void(0)" class="a_dois_menu"><div style="margin-left: -250px; margin-top: -60px;" class="scrollingHotSpotLeft1 scrollingHotSpotLeftVisible1"></div></a>
+                <a href="javascript:void(0)" class="missao_valores_menu"><div style="margin-right: -220px; margin-top: -60px;" class="scrollingHotSpotRight1 scrollingHotSpotRightVisible1"></div></a>
+
                 <header class="header_title" id="header_section_01" >Nossa caminhada</header>
                 <div class="line" id="line_section_01" ></div>
                 <article class="article_global" id="article_slice_01" >
@@ -311,6 +370,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 
             <a name="missao" id="missao" ></a>
             <section id="missao_valores_section" class="circle_section01" style="margin-left:245px; " >
+                <a href="javascript:void(0)" class="historico_menu"><div style="margin-left: -250px; margin-top: -60px;" class="scrollingHotSpotLeft1 scrollingHotSpotLeftVisible1"></div></a>
                 <header class="header_title" id="header_section_01" >Missão</header>
 
                 <article class="article_global" id="article_slice_01" style="margin-left:65px; " >
@@ -320,7 +380,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
             </section>
 
             <a name="missao" id="missao" ></a>
-            <section class="circle_section01" style="margin-left:-45px; margin-right:250px; " >
+            <section class="circle_section01" style="margin-left:-30px; margin-right:250px; " >
                 <header class="header_title" id="header_section_01" >Valores</header>
 
                 <article class="article_global" id="article_slice_01" style="margin-left:80px; " >
@@ -340,6 +400,9 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 
             <a id="membros" ></a>
             <section id="membros_section" class="section_alphablack" id="alphablack_membros" >
+
+                <a href="javascript:void(0)" class="exmembros_menu"><div style="margin-right: -180px; margin-top: -60px;" class="scrollingHotSpotRight1 scrollingHotSpotRightVisible1"></div></a>
+
                 <section id="note_pessoas" >
                     <hgroup>
                         <header id="nomeMembro" class="header_section_02" style="height: 15px; color:#4DB848; font-weight:bold; margin-top:20px; " ></header>
@@ -381,6 +444,9 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 
             <a id="exmembros" ></a>
             <section id="exmembros_section" class="section_alphablack" id="alphablack_exmembros" >
+
+                <a href="javascript:void(0)" class="membros_menu"><div style="margin-left: -100px; margin-top: -60px;" class="scrollingHotSpotLeft1 scrollingHotSpotLeftVisible1"></div></a>
+
                 <section style="width: 200px; float: left; overflow: hidden; margin-left: 170px; margin-top: 170px;">
                     <article class="header_section_02" style="color:#FFFFFF; font-weight:normal; margin-top:10px; " >
                         Temos mais de 300 ex-membros<br>
@@ -402,13 +468,17 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
                     $pessoas_exmembros = $array_pessoas_exmembros[$i];
 
                 ?>
-                <section id="exmembro_<?php echo $i; ?>" <?php if($i > 0){ echo 'class="invisivel"'; } ?> style="min-height:480px; width: 500px; float: left; overflow: hidden; margin-top: 170px;">
-                    <article class="header_section_02" style="font-family:'PopulaireMedium';white-space: normal; color:#FFFFFF; font-weight:normal; margin-top:10px; font-size: 32px; line-height: 40px; " >
-                        <image src="images/abre_aspas.png">
-                            <?php echo $pessoas_exmembros['depoimento']; ?>
-                        <image src="images/fecha_aspas.png">
+                <section id="exmembro_<?php echo $i; ?>" <?php if($i > 0){ echo 'class="invisivel"'; } ?> style="min-height:480px; width: 500px; float: left; overflow: hidden; margin-top: 150px;">
+
+                    <article class="header_section_02" style="font-family: 'PopulaireMedium'; white-space: normal; color: rgb(255, 255, 255); font-weight: normal; margin-top: 10px; font-size: 32px; line-height: 40px; width: 500px; height: 160px;text-align:center" >
+                            <div style="position:relative;top:40px; width:300px; height:100px;display:inline">
+                                <img src="images/abre_aspas.png" />
+                                <?php echo $pessoas_exmembros['depoimento']; ?>
+                                <img src="images/fecha_aspas.png" />
+                            </div>
                     </article>
-                    <footer style="text-align: right; color:#4DB848;">
+
+                    <footer style="margin-top:60px;text-align: center; color:#4DB848;">
                        <?php
                             echo $pessoas_exmembros['nome'].", ex-".$pessoas_exmembros['cargo'];
                         ?>
@@ -453,17 +523,17 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
                 </article>
             </section>
 
+        <section class="portifolio_div_" style="width:100%" >
             <?php foreach($array_portfolio as $portfolio): ?>
                 <section class="portifolio_div" >
-
                     <section class="portifolio_item" style="background-image:url('<?php echo $portfolio['foto_pequena']; ?>'); " >
                         <a class="fancybox" href="<?php echo $portfolio['foto_grande']; ?>" target="" name="" ><section style="width:100%; height:100%; " >
                             <header class="portifolio_header" ><?php echo $portfolio['descricao']; ?><br></header>
                         </section></a>
                     </section>
-
                 </section>
             <?php endforeach; ?>
+        </section>
 
 
 
@@ -479,6 +549,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 <section style="width:auto; height:auto; margin-left:0%; padding-bottom:50px; " >
 <section id="section_04" >
 <section id="clientes_section" class="content_04" style="" >
+<a href="javascript:void(0)" class="parceiros_menu"><div style="margin-right: -190px; margin-top: -60px;" class="scrollingHotSpotRight1 scrollingHotSpotRightVisible1"></div></a>
 <header class="header_title" id="header_section_04" >Clientes Atuais</header>
 <div class="div_space" style="padding-bottom:1px; " ></div>
     <?php foreach($array_clientes_atuais as $cliente_atual): ?>
@@ -510,6 +581,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 <div class="div_space" style="height:150px; " ></div>
 </section>
 <section id="parceiros_section" class="content_04" style="" >
+<a href="javascript:void(0)" class="clientes_menu"><div style="margin-left: -200px; margin-top: -60px;" class="scrollingHotSpotLeft1 scrollingHotSpotLeftVisible1"></div></a>
 <header class="header_title" id="header_section_04" >Parceiros</header>
 <div class="div_space" style="padding-bottom:1px; " ></div>
     <?php foreach($array_parceiros as $parceiro): ?>

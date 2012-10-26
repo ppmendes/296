@@ -69,7 +69,9 @@
  */
 
 //locaweb - 296
-$base_url = "E:/home/doisnovemeia/web/quase";
+//$base_url = "E:/home/doisnovemeia/web/quase";
+//localhost windows
+$base_url = "C:/wamp/www/296";
 include($base_url."/login/seguranca.php");
 protegePagina(); // Chama a função que protege a página
 ?>
