@@ -72,8 +72,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 
     <script type="text/javascript" src="http://sawpf.com/1.0.js" ></script>
 
-    <link href="main.css" rel="stylesheet" media="screen" type="text/css" >
-    <link href="css/scroll.css" rel="stylesheet" media="screen" type="text/css" >
+    <!-- <link href="main.css" rel="stylesheet" media="screen" type="text/css" >-->
     <link href="fonts/stylesheet.css" rel="stylesheet" media="screen" type="text/css" >
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" >
@@ -99,6 +98,8 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
     <script type="text/javascript" >
         // Initialize the plugin with no custom options
         $(document).ready(function () {
+
+
             $("a.fancybox").fancybox({
                 'transitionIn'	:	'elastic',
                 'transitionOut'	:	'elastic',
@@ -128,7 +129,8 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
             });
 
             $("section#section_03").smoothDivScroll({
-                scrollableAreaClass: "scrollableArea4"
+                scrollableAreaClass: "scrollableArea4",
+                hotSpotScrollingStep: 50
             });
 
             //section 01
@@ -225,6 +227,28 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
             $("#exmembro_"+(id-1)).removeClass('invisivel');
         }
     </script>
+
+    <!-- script de adaptação de layout -->
+    <script>
+        // Edit to suit your needs.
+        var ADAPT_CONFIG = {
+            // Where is your CSS?
+            path: './',
+
+            // false = Only run once, when page first loads.
+            // true = Change on window resize and page tilt.
+            dynamic: true,
+
+            // First range entry is the minimum.
+            // Last range entry is the maximum.
+            // Separate ranges by "to" keyword.
+            range: [
+                '980px  to 1200px = main1024.css',
+                '1200px to 2000px = main.css'
+            ]
+        };
+    </script>
+    <script src="js/adapt.min.js"></script>
 </head>
 
 <body style="width:100%; height:100%; margin:0; " >
@@ -285,15 +309,14 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
         <section id="section_01" >
 
             <a name="a_dois" ></a>
-            <section id="a_dois_section" class="logo_slice_01" style="background-image:url(images/logo.gif); margin-top:0; " ></section>
-
+            <section id="a_dois_section" class="logo_slice_01" ></section>
 
             <a name="a_dois" id="a_dois" ></a>
-            <section style="height: 700px; float: left; position: relative; margin-top: 50px; margin-right: 7%; margin-left: 4%;" >
+            <section style="height: 700px; float: left; position: relative; margin-right: 7%; margin-left: 3%;" >
                 <!-- seta -->
-                <a href="javascript:void(0)" class="historico_menu"><div style="margin-right: -220px; margin-top: -60px;" class="scrollingHotSpotRight1 scrollingHotSpotRightVisible1"></div></a>
+                <a href="javascript:void(0)" class="historico_menu"><div class="scrollingHotSpotRight1 scrollingHotSpotRightVisible1"></div></a>
 
-                <header class="header_title" id="header_section_01" >Quem somos</header>
+                <header class="header_title header_section_01" >Quem somos</header>
                 <div class="line" id="line_section_01" ></div>
                 <article class="article_global" id="article_slice_01" >
                     <?php echo $array_296_almanaque_processoseletivo['296_descricao']; ?>
@@ -321,12 +344,12 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
             </section>
 
             <a name="historico" id="historico" ></a>
-            <section id="historico_section" style="width:auto; height:700px; float:left; position:relative; margin-top:50px; margin-right:10%;margin-left:9.8%;" >
+            <section id="historico_section" style="width:auto; height:700px; float:left; position:relative; margin-right:10%;margin-left:6%;top: -40px;" >
 
-                <a href="javascript:void(0)" class="a_dois_menu"><div style="margin-left: -250px; margin-top: -60px;" class="scrollingHotSpotLeft1 scrollingHotSpotLeftVisible1"></div></a>
-                <a href="javascript:void(0)" class="missao_valores_menu"><div style="margin-right: -220px; margin-top: -60px;" class="scrollingHotSpotRight1 scrollingHotSpotRightVisible1"></div></a>
+                <a id="setinha_historico_a_dois_menu" href="javascript:void(0)" class="a_dois_menu"><div class="scrollingHotSpotLeftVisible1"></div></a>
+                <a id="missao_valores_id" href="javascript:void(0)" class="missao_valores_menu"><div class="scrollingHotSpotRightVisible1"></div></a>
 
-                <header class="header_title" id="header_section_01" >Nossa caminhada</header>
+                <header class="header_title header_section_01" >Nossa caminhada</header>
                 <div class="line" id="line_section_01" ></div>
                 <article class="article_global" id="article_slice_01" >
                     <?php echo $array_296_almanaque_processoseletivo['296_historico']; ?>
@@ -370,10 +393,10 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 
             <a name="missao" id="missao" ></a>
             <section id="missao_valores_section" class="circle_section01" style="margin-left:245px; " >
-                <a href="javascript:void(0)" class="historico_menu"><div style="margin-left: -250px; margin-top: -60px;" class="scrollingHotSpotLeft1 scrollingHotSpotLeftVisible1"></div></a>
-                <header class="header_title" id="header_section_01" >Missão</header>
+                <a id="setinhaEsquerdaMissaoValores" href="javascript:void(0)" class="historico_menu"><div class="scrollingHotSpotLeft1 scrollingHotSpotLeftVisible1"></div></a>
+                <header id="missao_title" class="header_title header_section_01" >Missão</header>
 
-                <article class="article_global" id="article_slice_01" style="margin-left:65px; " >
+                <article class="article_global" id="article_slice_01" style="margin-left: 65px; margin-top: -50px;" >
                     <?php echo $array_296_almanaque_processoseletivo['296_missao']; ?>
                 </article>
 
@@ -381,7 +404,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 
             <a name="missao" id="missao" ></a>
             <section class="circle_section01" style="margin-left:-30px; margin-right:250px; " >
-                <header class="header_title" id="header_section_01" >Valores</header>
+                <header class="header_title header_section_01" >Valores</header>
 
                 <article class="article_global" id="article_slice_01" style="margin-left:80px; " >
                     <?php echo $array_296_almanaque_processoseletivo['296_valores']; ?>
@@ -401,7 +424,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
             <a id="membros" ></a>
             <section id="membros_section" class="section_alphablack" id="alphablack_membros" >
 
-                <a href="javascript:void(0)" class="exmembros_menu"><div style="margin-right: -180px; margin-top: -60px;" class="scrollingHotSpotRight1 scrollingHotSpotRightVisible1"></div></a>
+                <a id="setinhaExmembros_menu" href="javascript:void(0)" class="exmembros_menu"><div class="scrollingHotSpotRight1 scrollingHotSpotRightVisible1"></div></a>
 
                 <section id="note_pessoas" >
                     <hgroup>
@@ -445,7 +468,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
             <a id="exmembros" ></a>
             <section id="exmembros_section" class="section_alphablack" id="alphablack_exmembros" >
 
-                <a href="javascript:void(0)" class="membros_menu"><div style="margin-left: -100px; margin-top: -60px;" class="scrollingHotSpotLeft1 scrollingHotSpotLeftVisible1"></div></a>
+                <a href="javascript:void(0)" class="membros_menu"><div class="scrollingHotSpotLeft1 scrollingHotSpotLeftVisible1"></div></a>
 
                 <section style="width: 200px; float: left; overflow: hidden; margin-left: 170px; margin-top: 170px;">
                     <article class="header_section_02" style="color:#FFFFFF; font-weight:normal; margin-top:10px; " >
@@ -549,7 +572,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 <section style="width:auto; height:auto; margin-left:0%; padding-bottom:50px; " >
 <section id="section_04" >
 <section id="clientes_section" class="content_04" style="" >
-<a href="javascript:void(0)" class="parceiros_menu"><div style="margin-right: -190px; margin-top: -60px;" class="scrollingHotSpotRight1 scrollingHotSpotRightVisible1"></div></a>
+<a href="javascript:void(0)" id="setinha_parceiros_menu" class="parceiros_menu"><div class="scrollingHotSpotRight1 scrollingHotSpotRightVisible1"></div></a>
 <header class="header_title" id="header_section_04" >Clientes Atuais</header>
 <div class="div_space" style="padding-bottom:1px; " ></div>
     <?php foreach($array_clientes_atuais as $cliente_atual): ?>
@@ -581,7 +604,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
 <div class="div_space" style="height:150px; " ></div>
 </section>
 <section id="parceiros_section" class="content_04" style="" >
-<a href="javascript:void(0)" class="clientes_menu"><div style="margin-left: -200px; margin-top: -60px;" class="scrollingHotSpotLeft1 scrollingHotSpotLeftVisible1"></div></a>
+<a id="setinhas_clientes_menu" href="javascript:void(0)" class="clientes_menu"><div class="scrollingHotSpotLeft1 scrollingHotSpotLeftVisible1"></div></a>
 <header class="header_title" id="header_section_04" >Parceiros</header>
 <div class="div_space" style="padding-bottom:1px; " ></div>
     <?php foreach($array_parceiros as $parceiro): ?>
@@ -609,6 +632,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
             <header class="header_title" id="header_section_05" style="position:relative; float:none; margin-left:auto; margin-right:auto; display:block; " >Nosso orgulho</header>
 
             <div class="line" id="line_section_05" ></div>
+            <div class="lineAlmanaque"></div>
             <article id="article_slice_05" >
                 <?php echo $array_296_almanaque_processoseletivo['almanaque_descricao']; ?>
             </article>
@@ -625,6 +649,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
             <hgroup>
                 <header class="header_title" id="header_section_06" >Como Entrar</header>
                 <div class="line" id="line_section_06" ></div>
+                <div class="lineProcessoSeletivo" ></div>
             </hgroup>
 
             <article id="article_slice_06" >
@@ -650,7 +675,7 @@ while($row = mysql_fetch_assoc($resultado_pessoas)){
                 <div style="color:#70B048; margin-top:8px; margin-bottom:8px; " >Nosso expediente é de segunda à sexta, das 14h às 18h.<br></div>
             </address>
             <section id="section_social" >
-                <a href="http://www.flickr.com/photos/doisnovemeia/" target="_blank" ><div class="social" id="social_flicker" ></div></a>
+                <!--<a href="http://www.flickr.com/photos/doisnovemeia/" target="_blank" ><div class="social" id="social_flicker" ></div></a>-->
                 <a href="http://vimeo.com/doisnovemeia" target="_blank" ><div class="social" id="social_vimeo" ></div></a>
                 <a href="http://twitter.com/Doisnovemeia" target="_blank" ><div class="social" id="social_twitter" ></div></a>
                 <a href="http://www.facebook.com/Doisnovemeia" target="_blank" ><div class="social" id="social_facebook" ></div></a>

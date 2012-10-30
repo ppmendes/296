@@ -2,9 +2,9 @@
 //linux
 //$base_url = "/var/www/296";
 //windows
-$base_url = "C:/wamp/www/296";
+//$base_url = "C:/wamp/www/296";
 //locaweb - 296
-//$base_url = "E:/home/doisnovemeia/web/quase";
+$base_url = "E:/home/doisnovemeia/web/quase";
 include($base_url."/login/seguranca.php");
 
 mysql_query("SET NAMES utf8");

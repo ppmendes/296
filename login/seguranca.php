@@ -32,9 +32,8 @@ $_SG['validaSempre'] = true;       // Deseja validar o usuário e a senha a cada
 /*$_SG['servidor'] = 'mysql18.doisnovemeia.com.br';    // Servidor MySQL
 $_SG['usuario'] = 'doisnovemeia17';          // Usuário MySQL
 $_SG['senha'] = 'web29meia';                // Senha MySQL
-$_SG['banco'] = 'doisnovemeia17';
+$_SG['banco'] = 'doisnovemeia17';*/
 
-*/
 $_SG['servidor'] = 'localhost';    // Servidor MySQL
 $_SG['usuario'] = 'root';          // Usuário MySQL
 $_SG['senha'] = '123456';                // Senha MySQL
@@ -44,9 +43,9 @@ $_SG['banco'] = 'redessociaison11';
 //localhost
 //$base_url_http = "http://localhost/296/";
 //locaweb 296
-//$base_url_http = "http://www.doisnovemeia.com.br/quase/";
+$base_url_http = "http://www.doisnovemeia.com.br/quase/";
 //localhost
-$base_url_http = "http://localhost/296/";
+//$base_url_http = "http://localhost/296/";
 $_SG['paginaLogin'] = $base_url_http.'login/login.php'; // Página de login
 
 $_SG['tabela'] = 'usuarios';       // Nome da tabela onde os usuários são salvos

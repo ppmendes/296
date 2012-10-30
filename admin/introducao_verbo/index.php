@@ -129,6 +129,7 @@ else
     if ($_FILES["imagem_file"]["error"] > 0)
     {
         echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
+
     }
     else
     {
@@ -136,6 +137,7 @@ else
         echo "Type: " . $_FILES["imagem_file"]["type"] . "<br />";
         echo "Size: " . ($_FILES["imagem_file"]["size"] / 1024) . " Kb<br />";
         echo "Temp file: " . $_FILES["imagem_file"]["tmp_name"] . "<br />";
+
 
 
             if (file_exists("../../images/verbos/" . $_FILES["imagem_file"]["name"]))

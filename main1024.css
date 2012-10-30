@@ -1,7 +1,17 @@
+#exmembros_section{
+    margin-left: 2%;
+}
+
+#setinhaExmembros_menu{
+    position: relative;
+    right: 5%;
+    bottom: 20px;
+}
+
 #a_dois_section{
     background-image:url(images/logo.gif);
     margin-top:0px;
-    width:7%;
+    width:5%;
 }
 
 #setinhas_clientes_menu{
@@ -32,25 +42,25 @@
 }
 
 #bg_almanaque_section {
-	width:450px; 
-	height:600px; 
-	display:block; 
-	padding-right:50px; 
-	padding-bottom:15px; 
-	padding-left:50px; 
-	z-index:-10; 
-	margin-left:auto; 
-	margin-right:auto; 
-	background-color:transparent; 
-	position:relative; 
-	float:none; 
-	top:-550px; 
-	background-position:50% 0%; 
-	background-position-x:50%; 
-	background-position-y:0%; 
-	background-repeat-x:no-repeat; 
-	background-repeat-y:no-repeat; 
-	background-repeat:no-repeat; 
+	width:450px;
+	height:600px;
+	display:block;
+	padding-right:50px;
+	padding-bottom:15px;
+	padding-left:50px;
+	z-index:-10;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:transparent;
+	position:relative;
+	float:none;
+	top:-550px;
+	background-position:50% 0%;
+	background-position-x:50%;
+	background-position-y:0%;
+	background-repeat-x:no-repeat;
+	background-repeat-y:no-repeat;
+	background-repeat:no-repeat;
 	background-size:auto 100%;
 }
 
@@ -292,7 +302,7 @@ body {
 }
 
 .header_section_01 {
-	font-size:70pt;
+	font-size:60pt;
 	text-align:center;
 	width:100%;
 	margin-top:50px;
@@ -623,13 +633,13 @@ body {
 }
 
 .content_04 {
-	width:1100px;
+	width:900px;
 	height:700px;
 	background-color:#FFFFFF;
 	float:left;
 	position:relative;
 	margin-top:100px;
-    margin-left: 2%;
+	margin-left:2%;
 	margin-right:150px;
 	padding:35px;
 }
@@ -822,10 +832,10 @@ body {
 .article_global {
 	text-align:left;
 	line-height:1.5em;
-	font-size: 11pt;
+	font-size: 8.8pt;
 	font-style:normal;
 	text-rendering:optimizelegibility;
-	padding:5px;
+	padding:3px;
 }
 
 .slice_content {
@@ -916,7 +926,7 @@ body {
 /* Facebook - Twitter */
 #redessociais {
     position: relative;
-    left: 480px;
+    left: 380px;
 }
 
 .twitter-follow-button {
@@ -935,6 +945,7 @@ body {
 
 #membros_section {
     height: 650px;
+    margin-left: 0% !important;
 }
 
 .menu li a{

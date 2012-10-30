@@ -34,7 +34,7 @@ div.scrollingHotSpotLeftVisible {
 
 div.scrollingHotSpotRight {
     min-width:75px;
-    width:10%;
+    width:4%;
     height:100%;
     background-image:url(../images/big_transparent.gif);
     background-repeat-x:repeat;
@@ -60,60 +60,43 @@ div.scrollingHotSpotRightVisible {
 }
 
 /* para as imagens clicáveis */
-div.scrollingHotSpotLeft1 {
-	min-width:75px;
-	width:10%;
-	height:100%;
-	background-image:url(../images/big_transparent.gif);
-	background-repeat-x:repeat;
-	background-repeat-y:repeat;
-	background-repeat:repeat;
-	background-position:50% 50%;
-	background-position-x:50%;
-	background-position-y:50%;
-	position:absolute;
-	z-index:200;
-	left:0;
-}
-
-/* Visible left hotspot */
 
 div.scrollingHotSpotLeftVisible1 {
-	background-image:url(../images/arrow_left.png);
-	background-color:transparent;
-	background-repeat-x:no-repeat;
-	background-repeat-y:no-repeat;
-	background-repeat:no-repeat;
-	zoom:1;
+    background-color: transparent;
+    background-image: url("../images/arrow_left.png");
+    background-repeat: no-repeat;
+    height: 54px;
+    position: relative;
+    right: 5%;
+    top: 280px;
+    width: 18px;
 }
-
-/* Invisible right hotspot */
-
-div.scrollingHotSpotRight1 {
-	min-width:75px;
-	width:10%;
-	height:100%;
-	background-image:url(../images/big_transparent.gif);
-	background-repeat-x:repeat;
-	background-repeat-y:repeat;
-	background-repeat:repeat;
-	background-position:50% 50%;
-	background-position-x:50%;
-	background-position-y:50%;
-	position:absolute;
-	z-index:200;
-	right:0px;
-}
-
-/* Visible right hotspot */
 
 div.scrollingHotSpotRightVisible1 {
-	background-image:url(../images/arrow_right.png);
-	background-color:transparent;
-	background-repeat-x:no-repeat;
-	background-repeat-y:no-repeat;
-	background-repeat:no-repeat;
-	zoom:1;
+    background-color: transparent;
+    background-image: url("../images/arrow_right.png");
+    background-repeat: no-repeat;
+    height: 54px;
+    left: 102%;
+    position: relative;
+    top: 280px;
+    width: 18px;
+
+
+
+
+}
+
+/*setinhas */
+#missao_valores_id {
+    position: relative;
+    top: -55px;
+}
+
+#setinhaEsquerdaMissaoValores
+{
+    bottom: 200px;
+    position: relative;
 }
 
 /* The scroll wrapper is always the same width and height as the containing element (div).
@@ -129,13 +112,13 @@ div.scrollWrapper {
 
 div.scrollableArea {
 	position:relative;
-	width:310%;
+	width: 4200px;
 	height:100%;
 }
 
 div.scrollableArea4 {
     position:relative;
-    width:110%;
+    width:1750px;
     height:100%;
 }
 
@@ -148,31 +131,31 @@ div.scrollableArea4 {
 	margin-bottom:0;
 }
 #scroll_1{
-	
+
 }
 
 #scroll_2{
-	
+
 }
 
 #scroll_3{
 
-}	
+}
 
 #scroll_4{
-	
+
 }
 
 #scroll_5{
-	
+
 }
 
 #scroll_6{
-	
+
 }
 
 #scroll_7{
-	
+
 }
 
 #scroll div.scrollableArea img, #scroll_1 div.scrollableArea img, #scroll_2 div.scrollableArea img, #scroll_3 div.scrollableArea img, #scroll_4 div.scrollableArea img, #scroll_5 div.scrollableArea img, #scroll_6 div.scrollableArea img, #scroll_7 div.scrollableArea img {
